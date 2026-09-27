@@ -6,5 +6,10 @@
 
 [node name="TestSprite" type="Sprite2D" parent="." unique_id=1214430514]
 modulate = Color(1, 1, 0.23137255, 1)
-position = Vector2(639, 310)
+position = Vector2(628, 354)
+texture = ExtResource("1_b5ayd")
+
+[node name="TestSprite2" type="Sprite2D" parent="." unique_id=104922139]
+modulate = Color(1, 1, 0.23137255, 1)
+position = Vector2(628, 354)
 texture = ExtResource("1_b5ayd")
