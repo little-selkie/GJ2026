@@ -5,5 +5,6 @@
 [node name="TestScene" type="Node2D" unique_id=2080781036]
 
 [node name="TestSprite" type="Sprite2D" parent="." unique_id=1214430514]
-position = Vector2(569, 294)
+modulate = Color(1, 1, 0.23137255, 1)
+position = Vector2(639, 310)
 texture = ExtResource("1_b5ayd")
