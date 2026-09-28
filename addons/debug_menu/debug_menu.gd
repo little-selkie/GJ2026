@@ -478,3 +478,7 @@ func _on_visibility_changed() -> void:
 		frame_history_cpu.fill(RenderingServer.viewport_get_measured_render_time_cpu(viewport_rid) + RenderingServer.get_frame_setup_time_cpu())
 		frame_history_gpu.resize(HISTORY_NUM_FRAMES)
 		frame_history_gpu.fill(RenderingServer.viewport_get_measured_render_time_gpu(viewport_rid))
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	pass

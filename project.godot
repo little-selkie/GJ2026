@@ -38,6 +38,7 @@ enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg")
 
 folder_colors={
 "res://Scenes/": "blue",
+"res://Scripts/": "teal",
 "res://addons/": "gray"
 }
 

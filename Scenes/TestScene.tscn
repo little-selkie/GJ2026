@@ -1,15 +1,12 @@
 [gd_scene format=3 uid="uid://hdaeddc2o8rk"]
 
+[ext_resource type="Script" uid="uid://cdjlpklv8uuct" path="res://Scripts/test_scene.gd" id="1_5lt6y"]
 [ext_resource type="Texture2D" uid="uid://bpjp5kymrjj35" path="res://icon.svg" id="1_b5ayd"]
 
 [node name="TestScene" type="Node2D" unique_id=2080781036]
+script = ExtResource("1_5lt6y")
 
 [node name="TestSprite" type="Sprite2D" parent="." unique_id=1214430514]
-modulate = Color(1, 1, 0.23137255, 1)
-position = Vector2(628, 354)
-texture = ExtResource("1_b5ayd")
-
-[node name="TestSprite2" type="Sprite2D" parent="." unique_id=104922139]
 modulate = Color(1, 1, 0.23137255, 1)
 position = Vector2(628, 354)
 texture = ExtResource("1_b5ayd")
