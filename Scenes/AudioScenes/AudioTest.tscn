@@ -1,3 +1,8 @@
 [gd_scene format=3 uid="uid://b5ow2ws46uw0u"]
 
+[ext_resource type="AudioStream" uid="uid://csp2fu6mw3hk2" path="res://Audio/TestAudio/085296_shovel-36732.mp3" id="1_632av"]
+
 [node name="AudioTest" type="Node2D" unique_id=969946421]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1303030460]
+stream = ExtResource("1_632av")
