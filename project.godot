@@ -11,10 +11,14 @@ config_version=5
 [application]
 
 config/name="GJ2026"
-config/version="1.0.0"
-run/main_scene="uid://hdaeddc2o8rk"
+config/version="0.0.1"
+run/main_scene="uid://chaj24gl6w362"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Images/TestImages/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://Audio/default_bus_layout.tres"
 
 [autoload]
 
@@ -22,6 +26,9 @@ DebugMenu="*uid://cggqb75a8w8r"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -38,6 +45,7 @@ enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg")
 
 folder_colors={
 "res://Audio/": "yellow",
+"res://Images/": "purple",
 "res://Scenes/": "blue",
 "res://Scripts/": "teal",
 "res://addons/": "gray"

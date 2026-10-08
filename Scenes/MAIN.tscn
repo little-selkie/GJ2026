@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://chaj24gl6w362"]
+
+[ext_resource type="PackedScene" uid="uid://cjo64evrf3wms" path="res://Scenes/UI/HUD.tscn" id="1_8as8m"]
+
+[node name="MAIN" type="Node2D" unique_id=1001715188]
+
+[node name="HUD" parent="." unique_id=690529518 instance=ExtResource("1_8as8m")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1258235828]
+anchor_mode = 0

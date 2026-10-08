@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cjo64evrf3wms"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1184858684]
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=934088138]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
