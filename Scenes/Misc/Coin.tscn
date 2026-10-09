@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bwq4v60xp1p4c"]
 
 [ext_resource type="Script" uid="uid://5j1h67nxfsl5" path="res://Scripts/coin.gd" id="1_4qb67"]
-[ext_resource type="Texture2D" uid="uid://bpjp5kymrjj35" path="res://Images/TestImages/icon.svg" id="1_kkrkt"]
+[ext_resource type="Texture2D" uid="uid://dm23lxmsx6cy5" path="res://Images/Props/Coin.png" id="2_4qb67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(26, 26)
@@ -11,8 +11,8 @@ script = ExtResource("1_4qb67")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=668590091]
 self_modulate = Color(1, 0.7137255, 0, 1)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_kkrkt")
+scale = Vector2(0.27999848, 0.27999848)
+texture = ExtResource("2_4qb67")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1193610652]
 collision_layer = 2

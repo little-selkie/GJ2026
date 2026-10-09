@@ -25,7 +25,7 @@ func add_move_ui(direction) -> void:
 	new_child.add_child(new_image)
 
 func _on_clear_button_pressed() -> void:
-	GlobalVars.move_array = []
+	GlobalVars.move_array.clear()
 	for n in $ScrollContainer/Commands.get_children():
 		$ScrollContainer/Commands.remove_child(n)
 
@@ -56,7 +56,7 @@ func _on_delete_button_pressed() -> void:
 func _on_stop_buttom_pressed() -> void:
 	GlobalVars.move_step = 0
 	GlobalVars.coins = 0
-	GlobalVars.move_array = []
+	GlobalVars.move_array.clear()
 	get_tree().reload_current_scene()
 
 

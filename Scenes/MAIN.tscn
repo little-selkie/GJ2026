@@ -11,7 +11,6 @@ character_timer = NodePath("../Level0/MainCharacter/Timer")
 enemies = NodePath("../Level0/Enemies")
 
 [node name="ShaderScene" parent="." unique_id=295264481 instance=ExtResource("1_c5rrr")]
-visible = false
 
 [node name="Level0" parent="." unique_id=2120250458 instance=ExtResource("2_rqf0l")]
 
