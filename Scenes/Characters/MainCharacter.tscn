@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cw7txi1hy4048" path="res://Scripts/main_character.gd" id="1_4flse"]
 [ext_resource type="Texture2D" uid="uid://47ssdiubpu4w" path="res://Images/Props/ChelMan.png" id="2_4flse"]
+[ext_resource type="AudioStream" uid="uid://18neo22j8u1p" path="res://Audio/SFX/enemyhit.mp3" id="3_j5d3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(128, 128)
@@ -60,5 +61,12 @@ shape = SubResource("RectangleShape2D_xrivr")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=542239156]
 libraries/ = SubResource("AnimationLibrary_cbltj")
 
+[node name="DeathTimer" type="Timer" parent="." unique_id=528536699]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=926130387]
+stream = ExtResource("3_j5d3a")
+volume_db = -3.586
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

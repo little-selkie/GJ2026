@@ -42,11 +42,14 @@ func move() -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	$AudioStreamPlayer2D.play()
+	$Sprite2D.visible = false
+	$DeathTimer.start()
 	GlobalVars.coins = 0
 	GlobalVars.move_step = 0
 	GlobalVars.move_array.clear()
 	GlobalVars.total_attempts = 5
-	get_tree().reload_current_scene()
+	#get_tree().reload_current_scene()
 
 
 func _on_timer_timeout() -> void:
@@ -66,3 +69,7 @@ func _on_timer_timeout() -> void:
 		GlobalVars.coins = 0
 		GlobalVars.move_step = 0
 		GlobalVars.move_array.clear()
+
+
+func _on_death_timer_timeout() -> void:
+	get_tree().reload_current_scene()
