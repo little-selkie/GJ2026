@@ -74,6 +74,7 @@ func check_if_wall(tile_coordinates) -> bool:
 	if $ActionGrid.get_cell_tile_data(tile_coordinates) != null:
 		if $ActionGrid.get_cell_tile_data(tile_coordinates).get_custom_data("is_not_traversable") == true:
 			is_wall = 0
+			$WallHit.play()
 		else:
 			is_wall = 1
 	else:

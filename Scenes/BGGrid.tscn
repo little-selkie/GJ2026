@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bwq4v60xp1p4c" path="res://Scenes/Misc/Coin.tscn" id="2_xmmki"]
 [ext_resource type="PackedScene" uid="uid://rkr44dpi7bp3" path="res://Scenes/Misc/Wall.tscn" id="3_6mb66"]
 [ext_resource type="Texture2D" uid="uid://27astauv5cla" path="res://Images/Props/Box64х64.png" id="4_w4i8l"]
+[ext_resource type="AudioStream" uid="uid://brnyqm3cbnfh" path="res://Audio/SFX/wallhit.mp3" id="6_4t4p5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b24im"]
 resource_name = "BG"
@@ -92,3 +93,8 @@ navigation_visibility_mode = 1
 [node name="Walls" type="Node2D" parent="." unique_id=1888965119]
 
 [node name="StepTimer" type="Timer" parent="." unique_id=429231028]
+
+[node name="WallHit" type="AudioStreamPlayer2D" parent="." unique_id=1272328485]
+stream = ExtResource("6_4t4p5")
+volume_db = 5.753
+bus = &"SFX"
