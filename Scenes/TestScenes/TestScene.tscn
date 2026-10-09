@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cdjlpklv8uuct" path="res://Scripts/TestScripts/test_scene.gd" id="1_g28u0"]
 [ext_resource type="Shader" uid="uid://40fj7usru4ld" path="res://Scenes/TestScenes/CRTFilter.gdshader" id="2_fe8sf"]
 [ext_resource type="PackedScene" uid="uid://csn6i548j52sw" path="res://Scenes/TestScenes/GYM.tscn" id="3_1omkh"]
+[ext_resource type="Shader" uid="uid://dr1gou7tytvfx" path="res://Scenes/TestScenes/CRTFilerAnimatedShader.gdshader" id="3_5qkg8"]
 [ext_resource type="PackedScene" uid="uid://cjo64evrf3wms" path="res://Scenes/UI/HUD.tscn" id="4_fe8sf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fut4u"]
@@ -17,6 +18,15 @@ shader_parameter/brightness = 1.1
 shader_parameter/rgb_mask = false
 shader_parameter/mask_strength = 0.3
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ddoef"]
+shader = ExtResource("3_5qkg8")
+shader_parameter/scanlines_1 = 500.0
+shader_parameter/scanlines_2 = 25.0
+shader_parameter/scan_reduction = 0.1
+shader_parameter/vinnette_alpla = 1.0
+shader_parameter/vinnette_inner_radius = 0.0
+shader_parameter/vinnette_outer_radius = 1.0
+
 [node name="TestScene" type="Node2D" unique_id=2080781036]
 script = ExtResource("1_g28u0")
 
@@ -29,6 +39,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="CRT_Filer_Animated_Shader" type="ColorRect" parent="CRT_Filter" unique_id=1656686858]
+material = SubResource("ShaderMaterial_ddoef")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="Gym" parent="." unique_id=80313847 instance=ExtResource("3_1omkh")]
 
