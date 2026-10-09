@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dw8lh1xlpiwa"]
+
+[ext_resource type="Script" uid="uid://bdfgdomvbpucw" path="res://Scripts/defeat_screen.gd" id="1_dwrtv"]
+[ext_resource type="Theme" uid="uid://ba5hr3ln210s2" path="res://Scenes/UI/main_theme.tres" id="2_38ys7"]
+
+[node name="VictoryScreen" type="CanvasLayer" unique_id=1243858590]
+script = ExtResource("1_dwrtv")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1739077428]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="AspectRatioContainer" unique_id=480488351]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer" unique_id=1573451939]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VictoryLabel" type="Label" parent="AspectRatioContainer/VBoxContainer" unique_id=1891971365]
+layout_mode = 2
+theme = ExtResource("2_38ys7")
+text = "Victory!"
+horizontal_alignment = 1
+
+[node name="TryAgainButton" type="Button" parent="AspectRatioContainer/VBoxContainer" unique_id=318409025]
+layout_mode = 2
+text = "Back to Main Menu"
+
+[node name="ExitButton" type="Button" parent="AspectRatioContainer/VBoxContainer" unique_id=494326663]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="button_down" from="AspectRatioContainer/VBoxContainer/TryAgainButton" to="." method="_on_try_again_button_button_down"]
+[connection signal="button_down" from="AspectRatioContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]
