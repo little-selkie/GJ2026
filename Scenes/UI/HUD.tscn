@@ -10,10 +10,10 @@ script = ExtResource("1_omqfp")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1678.0
-offset_top = 7.0
-offset_right = 69.0
-offset_bottom = -761.0
+offset_left = 1524.0
+offset_top = 39.0
+offset_right = -85.0
+offset_bottom = -729.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment_horizontal = 2
@@ -37,16 +37,24 @@ size_flags_vertical = 0
 theme = ExtResource("2_qc5w2")
 text = "0"
 
-[node name="Q2" type="Label" parent="AspectRatioContainer/VBoxContainer" unique_id=165491487]
+[node name="Tries" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer" unique_id=1047865369]
+layout_mode = 2
+
+[node name="AttemptsLeft" type="Label" parent="AspectRatioContainer/VBoxContainer/Tries" unique_id=587455895]
 layout_mode = 2
 theme = ExtResource("2_qc5w2")
-text = "Q"
+text = "Attempts Left:"
+
+[node name="Number" type="Label" parent="AspectRatioContainer/VBoxContainer/Tries" unique_id=1787839644]
+layout_mode = 2
+theme = ExtResource("2_qc5w2")
+text = "0"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=197574095]
-offset_left = 1763.0
-offset_top = 184.0
-offset_right = 2074.0
-offset_bottom = 870.0
+offset_left = 1729.0
+offset_top = 241.0
+offset_right = 2040.0
+offset_bottom = 927.0
 
 [node name="Commands" type="VBoxContainer" parent="ScrollContainer" unique_id=318223349]
 layout_mode = 2
@@ -57,10 +65,10 @@ size_flags_vertical = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1742.0001
-offset_top = 885.0
-offset_right = 125.0
-offset_bottom = -2.0
+offset_left = 1768.0001
+offset_top = 987.0
+offset_right = 151.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7200024, 1)

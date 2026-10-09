@@ -8,6 +8,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	$AspectRatioContainer/VBoxContainer/Score/Number.text = str(GlobalVars.coins)
+	$AspectRatioContainer/VBoxContainer/Tries/Number.text = str(GlobalVars.total_attempts)
 
 func add_move(direction) -> void:
 	add_move_ui(direction)
