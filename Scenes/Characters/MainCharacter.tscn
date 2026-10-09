@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://d4hbtj23x0id1"]
 
-[ext_resource type="Texture2D" uid="uid://bpjp5kymrjj35" path="res://Images/TestImages/icon.svg" id="1_3k4je"]
 [ext_resource type="Script" uid="uid://cw7txi1hy4048" path="res://Scripts/main_character.gd" id="1_4flse"]
+[ext_resource type="Texture2D" uid="uid://47ssdiubpu4w" path="res://Images/Props/ChelMan.png" id="2_4flse"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(128, 128)
@@ -10,7 +10,8 @@ size = Vector2(128, 128)
 script = ExtResource("1_4flse")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=872215085]
-texture = ExtResource("1_3k4je")
+scale = Vector2(0.51196265, 0.51196265)
+texture = ExtResource("2_4flse")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=773229897]
 collision_mask = 4

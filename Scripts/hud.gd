@@ -56,6 +56,7 @@ func _on_delete_button_pressed() -> void:
 func _on_stop_buttom_pressed() -> void:
 	GlobalVars.move_step = 0
 	GlobalVars.coins = 0
+	GlobalVars.move_array = []
 	get_tree().reload_current_scene()
 
 
