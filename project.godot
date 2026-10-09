@@ -12,7 +12,7 @@ config_version=5
 
 config/name="GJ2026"
 config/version="0.0.1"
-run/main_scene="uid://chaj24gl6w362"
+run/main_scene="uid://cvkiee62sx8wk"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://Images/TestImages/icon.svg"
 
