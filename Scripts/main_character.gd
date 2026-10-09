@@ -35,7 +35,7 @@ func move() -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	GlobalVars.coins = 0
-	GlobalVars.move_array = []
+	GlobalVars.move_array.clear()
 	get_tree().reload_current_scene()
 
 
@@ -47,3 +47,5 @@ func _on_timer_timeout() -> void:
 		#GlobalVars.coins = 0
 		#get_tree().reload_current_scene()
 		Hud.all_steps_finished()
+		GlobalVars.move_array.clear()
+		GlobalVars.move_step = 0
