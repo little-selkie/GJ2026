@@ -4,12 +4,14 @@
 [ext_resource type="Script" uid="uid://dryrkbsej31e7" path="res://Scripts/bg_grid.gd" id="1_b24im"]
 [ext_resource type="PackedScene" uid="uid://bwq4v60xp1p4c" path="res://Scenes/Misc/Coin.tscn" id="2_xmmki"]
 [ext_resource type="PackedScene" uid="uid://rkr44dpi7bp3" path="res://Scenes/Misc/Wall.tscn" id="3_6mb66"]
+[ext_resource type="Texture2D" uid="uid://ptfhca7m8y25" path="res://Images/Props/Box.png" id="4_w4i8l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b24im"]
-texture = ExtResource("1_5yihk")
+resource_name = "BG"
+texture = ExtResource("4_w4i8l")
 texture_region_size = Vector2i(64, 64)
+0:0/size_in_atlas = Vector2i(4, 4)
 0:0/0 = 0
-0:0/0/modulate = Color(0.18039216, 0.18039216, 0.18039216, 0.52156866)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5yihk"]
 resource_name = "MC_Origin"

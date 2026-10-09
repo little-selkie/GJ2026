@@ -44,5 +44,4 @@ func _on_timer_timeout() -> void:
 		GlobalVars.move_step = GlobalVars.move_step + 1
 	else:
 		GlobalVars.coins = 0
-		GlobalVars.move_array = []
 		get_tree().reload_current_scene()
