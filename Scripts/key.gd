@@ -3,6 +3,9 @@ extends Node2D
 @export var coin_cost: int = 5
 @export var Grid: Node2D
 
+func _ready() -> void:
+	$Label.text = str(coin_cost)
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if GlobalVars.coins == coin_cost:
 		GlobalVars.coins = 0

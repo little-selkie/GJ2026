@@ -12,6 +12,14 @@ script = ExtResource("1_a1obm")
 scale = Vector2(0.1143629, 0.1143629)
 texture = ExtResource("2_a1obm")
 
+[node name="Label" type="Label" parent="." unique_id=1095844998]
+offset_left = -19.0
+offset_top = -32.0
+offset_right = 21.0
+offset_bottom = -9.0
+text = "AAA"
+horizontal_alignment = 1
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1816468296]
 collision_layer = 8
 
