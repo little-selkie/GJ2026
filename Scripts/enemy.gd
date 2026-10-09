@@ -27,7 +27,14 @@ func _ready() -> void:
 			reverce_movement_pattern.append(1)
 		if movement_pattern[x] == 8:
 			reverce_movement_pattern.append(2)
-	pattern_to_text()
+	if movement_pattern[current_step-1] == 1:
+			$DirectionLabel.text = str("Up")
+	if movement_pattern[current_step-1] == 2:
+			$DirectionLabel.text = str("Right")
+	if movement_pattern[current_step-1] == 4:
+			$DirectionLabel.text = str("Down")
+	if movement_pattern[current_step-1] == 8:
+			$DirectionLabel.text = str("Left")
 	
 	$StepTimer.wait_time = GlobalVars.time_step
 	current_step = 1
@@ -92,6 +99,14 @@ func travel() -> void:
 		move_down()
 	elif movement_pattern[current_step-1] == 8:
 		move_left()
+	pattern_to_text()
 
 func pattern_to_text() -> void:
-	pass
+		if movement_pattern[current_step] == 1:
+			$DirectionLabel.text = str("Up")
+		if movement_pattern[current_step] == 2:
+			$DirectionLabel.text = str("Right")
+		if movement_pattern[current_step] == 4:
+			$DirectionLabel.text = str("Down")
+		if movement_pattern[current_step] == 8:
+			$DirectionLabel.text = str("Left")
