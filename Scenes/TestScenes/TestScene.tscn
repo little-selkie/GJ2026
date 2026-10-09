@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cdjlpklv8uuct" path="res://Scripts/TestScripts/test_scene.gd" id="1_g28u0"]
 [ext_resource type="Shader" uid="uid://40fj7usru4ld" path="res://Scenes/TestScenes/CRTFilter.gdshader" id="2_fe8sf"]
 [ext_resource type="PackedScene" uid="uid://csn6i548j52sw" path="res://Scenes/TestScenes/GYM.tscn" id="3_1omkh"]
+[ext_resource type="PackedScene" uid="uid://cjo64evrf3wms" path="res://Scenes/UI/HUD.tscn" id="4_fe8sf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fut4u"]
 shader = ExtResource("2_fe8sf")
@@ -30,3 +31,5 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Gym" parent="." unique_id=80313847 instance=ExtResource("3_1omkh")]
+
+[node name="HUD" parent="." unique_id=1184858684 instance=ExtResource("4_fe8sf")]

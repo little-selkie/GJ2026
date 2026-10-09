@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://cjo64evrf3wms"]
 
+[ext_resource type="Script" uid="uid://d0gbjwaihk4dk" path="res://Scripts/hud.gd" id="1_omqfp"]
+[ext_resource type="Theme" uid="uid://ba5hr3ln210s2" path="res://Scenes/UI/main_theme.tres" id="2_qc5w2"]
+
 [node name="HUD" type="CanvasLayer" unique_id=1184858684]
+script = ExtResource("1_omqfp")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=934088138]
 anchors_preset = 15
@@ -8,3 +12,19 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment_horizontal = 0
+alignment_vertical = 0
+
+[node name="Score" type="HBoxContainer" parent="AspectRatioContainer" unique_id=556037754]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Points" type="Label" parent="AspectRatioContainer/Score" unique_id=233982082]
+layout_mode = 2
+theme = ExtResource("2_qc5w2")
+text = "Points:"
+
+[node name="Number" type="Label" parent="AspectRatioContainer/Score" unique_id=615003362]
+layout_mode = 2
+theme = ExtResource("2_qc5w2")
+text = "0"
