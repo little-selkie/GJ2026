@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://nnhgnhc6rhnc"]
 
-[ext_resource type="Shader" uid="uid://b6mjkfc1h27d4" path="res://Scenes/TestScenes/CRTFilterFinal.gdshader" id="1_ow11w"]
+[ext_resource type="Shader" uid="uid://b6mjkfc1h27d4" path="res://Scenes/TestScenes/CRTFilterFinal.gdshader" id="1_n3qak"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bjrsl"]
-shader = ExtResource("1_ow11w")
+shader = ExtResource("1_n3qak")
 shader_parameter/curvature = 0.1
 shader_parameter/corner_radius = 0.06
 shader_parameter/border_color = Color(0, 0, 0, 1)
@@ -24,7 +24,7 @@ shader_parameter/radial_vignette_alpha = 0.2
 shader_parameter/radial_vignette_inner_radius = 0.0
 shader_parameter/radial_vignette_outer_radius = 1.0
 
-[node name="ShadeScene" type="Node2D" unique_id=295264481]
+[node name="ShaderScene" type="Node2D" unique_id=295264481]
 
 [node name="CRT_Filter" type="CanvasLayer" parent="." unique_id=1978822454]
 
