@@ -1,11 +1,22 @@
 [gd_scene format=3 uid="uid://rkr44dpi7bp3"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kjt57"]
-load_path = "res://.godot/imported/icon.svg-2bfc05740cf8aaffb9bd3a813062ac88.ctex"
+[ext_resource type="Texture2D" uid="uid://27astauv5cla" path="res://Images/Props/Box64х64.png" id="1_pakso"]
 
 [node name="Wall" type="Node2D" unique_id=1574717582]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=171201942]
+modulate = Color(1, 0, 0.28235295, 1)
 self_modulate = Color(2.8165433, 2.8165433, 2.8165433, 1)
-scale = Vector2(0.359999, 0.359999)
-texture = SubResource("CompressedTexture2D_kjt57")
+texture = ExtResource("1_pakso")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1266425216]
+modulate = Color(5.060031, 0, 1.5806122, 0.19607843)
+self_modulate = Color(2.8165433, 2.8165433, 2.8165433, 1)
+scale = Vector2(0.83999884, 0.83999884)
+texture = ExtResource("1_pakso")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=687625118]
+modulate = Color(8.221286, 0, 2.9743268, 0.08235294)
+self_modulate = Color(2.8165433, 2.8165433, 2.8165433, 1)
+scale = Vector2(0.68936294, 0.68936294)
+texture = ExtResource("1_pakso")

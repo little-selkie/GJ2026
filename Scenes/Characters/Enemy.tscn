@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dw4scxpc8o14d" path="res://Scripts/enemy.gd" id="1_3vkvf"]
 [ext_resource type="Texture2D" uid="uid://6vb7wf5xb0aj" path="res://Images/Props/EnemyBlue.png" id="2_3vkvf"]
+[ext_resource type="Theme" uid="uid://ba5hr3ln210s2" path="res://Scenes/UI/main_theme.tres" id="3_e8yix"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(50, 55)
@@ -22,5 +23,17 @@ position = Vector2(-4, -5.5)
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="StepTimer" type="Timer" parent="." unique_id=1683482619]
+
+[node name="DirectionLabel" type="Label" parent="." unique_id=1343732652]
+offset_left = -118.0
+offset_top = -50.0
+offset_right = 113.0
+offset_bottom = 22.0
+theme = ExtResource("3_e8yix")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 0.9529412)
+theme_override_colors/font_outline_color = Color(0.24313726, 0.90588236, 0.9843137, 1)
+theme_override_font_sizes/font_size = 52
+text = "Direction"
 
 [connection signal="timeout" from="StepTimer" to="." method="_on_step_timer_timeout"]
