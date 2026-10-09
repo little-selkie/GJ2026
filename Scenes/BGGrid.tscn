@@ -15,7 +15,7 @@ resource_name = "MC_Origin"
 texture = ExtResource("1_5yihk")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
-0:0/0/modulate = Color(0.16614726, 0.5409259, 0.54195845, 0.23529412)
+0:0/0/modulate = Color(0.16470589, 0.8784314, 0.5411765, 0.9647059)
 0:0/0/custom_data_0 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xmmki"]
@@ -23,7 +23,7 @@ resource_name = "Coin_Placement"
 texture = ExtResource("1_5yihk")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
-0:0/0/modulate = Color(1, 1, 0.10980392, 0.12156863)
+0:0/0/modulate = Color(0.68235296, 0.5921569, 0.14901961, 1)
 0:0/0/custom_data_1 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mb66"]
@@ -33,6 +33,13 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/modulate = Color(1, 0.007843138, 0.050980393, 0.5647059)
 0:0/0/custom_data_2 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w4i8l"]
+resource_name = "Wall"
+texture = ExtResource("1_5yihk")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/modulate = Color(2.9289904, 2.9289904, 2.9289904, 1)
 
 [sub_resource type="TileSet" id="TileSet_xrivr"]
 tile_size = Vector2i(64, 64)
@@ -46,6 +53,7 @@ sources/0 = SubResource("TileSetAtlasSource_b24im")
 sources/1 = SubResource("TileSetAtlasSource_5yihk")
 sources/2 = SubResource("TileSetAtlasSource_xmmki")
 sources/3 = SubResource("TileSetAtlasSource_6mb66")
+sources/4 = SubResource("TileSetAtlasSource_w4i8l")
 
 [node name="BgGrid" type="Node2D" unique_id=2137764861]
 script = ExtResource("1_b24im")
