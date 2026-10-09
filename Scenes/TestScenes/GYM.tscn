@@ -3,13 +3,19 @@
 [ext_resource type="PackedScene" uid="uid://cq7q40vcc8yt6" path="res://Scenes/BGGrid.tscn" id="1_a0dqf"]
 [ext_resource type="PackedScene" uid="uid://d4hbtj23x0id1" path="res://Scenes/Characters/MainCharacter.tscn" id="2_jwka5"]
 [ext_resource type="PackedScene" uid="uid://82g33acv4i6t" path="res://Scenes/Characters/Enemy.tscn" id="3_jwka5"]
+[ext_resource type="PackedScene" uid="uid://d4hgjk5me6a4e" path="res://Scenes/Misc/Key.tscn" id="4_4f2dp"]
+[ext_resource type="PackedScene" uid="uid://cjo64evrf3wms" path="res://Scenes/UI/HUD.tscn" id="5_tq72t"]
 
 [node name="Gym" type="Node2D" unique_id=80313847]
 
 [node name="BgGrid" parent="." unique_id=2137764861 instance=ExtResource("1_a0dqf")]
 
 [node name="ActionGrid" parent="BgGrid" index="1" unique_id=565875614]
-tile_map_data = PackedByteArray("AAAJAAUAAQAAAAAAAAAGAAsAAwAAAAAAAAAOAAcAAgAAAAAAAAAOAAgAAgAAAAAAAAAOAAkAAgAAAAAAAAAOAAoAAgAAAAAAAAAOAAsAAgAAAAAAAAAEAAIABAAAAAAAAAAFAAIABAAAAAAAAAAGAAIABAAAAAAAAAAHAAIABAAAAAAAAAAIAAIABAAAAAAAAAAJAAIABAAAAAAAAAAKAAIABAAAAAAAAAALAAIABAAAAAAAAAADAAYABAAAAAAAAAADAAcABAAAAAAAAAADAAgABAAAAAAAAAAKAAoABAAAAAAAAAAKAAsABAAAAAAAAAAKAAwABAAAAAAAAAAKAA0ABAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAJAAUAAQAAAAAAAAAGAAsAAwAAAAAAAAAOAAcAAgAAAAAAAAAOAAgAAgAAAAAAAAAOAAkAAgAAAAAAAAAOAAoAAgAAAAAAAAAOAAsAAgAAAAAAAAAEAAIABAAAAAAAAAAFAAIABAAAAAAAAAAGAAIABAAAAAAAAAAHAAIABAAAAAAAAAAIAAIABAAAAAAAAAAJAAIABAAAAAAAAAAKAAIABAAAAAAAAAALAAIABAAAAAAAAAADAAYABAAAAAAAAAADAAcABAAAAAAAAAADAAgABAAAAAAAAAAKAAoABAAAAAAAAAAKAAsABAAAAAAAAAAKAAwABAAAAAAAAAAKAA0ABAAAAAAAAAARAAkABQAAAAAAAAA=")
+
+[node name="Key" parent="." unique_id=957518585 node_paths=PackedStringArray("Grid") instance=ExtResource("4_4f2dp")]
+position = Vector2(992, 289)
+Grid = NodePath("../BgGrid")
 
 [node name="MainCharacter" parent="." unique_id=1410427937 node_paths=PackedStringArray("Grid") instance=ExtResource("2_jwka5")]
 Grid = NodePath("../BgGrid")
@@ -19,5 +25,7 @@ Grid = NodePath("../BgGrid")
 [node name="Enemy1" parent="Enemies" unique_id=1968893694 node_paths=PackedStringArray("Grid") instance=ExtResource("3_jwka5")]
 Grid = NodePath("../../BgGrid")
 movement_pattern = Array[int]([1, 1, 2, 1, 1])
+
+[node name="HUD" parent="." unique_id=1184858684 instance=ExtResource("5_tq72t")]
 
 [editable path="BgGrid"]

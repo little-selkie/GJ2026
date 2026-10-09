@@ -29,11 +29,19 @@ func _ready() -> void:
 		for tile_position in $ActionGrid.get_used_cells():
 			var wall
 			var wall_spawn_location
-			if $ActionGrid.get_cell_tile_data(tile_position).get_custom_data("is_not_traversable") == true:
+			if $ActionGrid.get_cell_tile_data(tile_position).get_custom_data("is_not_traversable") == true and $ActionGrid.get_cell_tile_data(tile_position).get_custom_data("door") == false:
 				wall = wall_object.instantiate()
 				wall_spawn_location = $ActionGrid.map_to_local(tile_position)
 				wall.global_position = wall_spawn_location
 				$Walls.add_child(wall)
+			if $ActionGrid.get_cell_tile_data(tile_position).get_custom_data("is_not_traversable") == true and $ActionGrid.get_cell_tile_data(tile_position).get_custom_data("door") == true:
+				wall = wall_object.instantiate()
+				wall_spawn_location = $ActionGrid.map_to_local(tile_position)
+				wall.global_position = wall_spawn_location
+				wall.modulate = Color(0.0, 1.915, 0.0, 1.0)
+				wall.name = "TheDoor"
+				$Walls.add_child(wall)
+				wall.name = "TheDoor"
 
 func get_global_coords(tile_position) -> void:
 	if $ActionGrid.get_cell_tile_data(tile_position) != null:
@@ -71,3 +79,8 @@ func check_if_wall(tile_coordinates) -> bool:
 	else:
 		is_wall = 1
 	return is_wall
+
+func open_the_door() -> void:
+	for tile_position in $ActionGrid.get_used_cells():
+		if $ActionGrid.get_cell_tile_data(tile_position).get_custom_data("door") == true:
+			$ActionGrid.erase_cell(tile_position)

@@ -43,6 +43,15 @@ texture_region_size = Vector2i(64, 64)
 0:0/0/modulate = Color(2.9289904, 2.9289904, 2.9289904, 1)
 0:0/0/custom_data_3 = true
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4t4p5"]
+resource_name = "Door"
+texture = ExtResource("1_5yihk")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/modulate = Color(0, 0, 2.2241454, 1)
+0:0/0/custom_data_3 = true
+0:0/0/custom_data_4 = true
+
 [sub_resource type="TileSet" id="TileSet_xrivr"]
 tile_size = Vector2i(64, 64)
 custom_data_layer_0/name = "mc_origin_point"
@@ -53,11 +62,14 @@ custom_data_layer_2/name = "enemy_origin_point"
 custom_data_layer_2/type = 1
 custom_data_layer_3/name = "is_not_traversable"
 custom_data_layer_3/type = 1
+custom_data_layer_4/name = "door"
+custom_data_layer_4/type = 1
 sources/0 = SubResource("TileSetAtlasSource_b24im")
 sources/1 = SubResource("TileSetAtlasSource_5yihk")
 sources/2 = SubResource("TileSetAtlasSource_xmmki")
 sources/3 = SubResource("TileSetAtlasSource_6mb66")
 sources/4 = SubResource("TileSetAtlasSource_w4i8l")
+sources/5 = SubResource("TileSetAtlasSource_4t4p5")
 
 [node name="BgGrid" type="Node2D" unique_id=2137764861]
 script = ExtResource("1_b24im")
