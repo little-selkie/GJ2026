@@ -2,17 +2,61 @@
 
 [ext_resource type="Script" uid="uid://ckdllshjkj56k" path="res://Scripts/main_menu_music.gd" id="1_41sdd"]
 [ext_resource type="AudioStream" uid="uid://dm5qcr3kx8pfl" path="res://Audio/Music/moodmode-8-bit-air-fight-158813.mp3" id="1_48c0w"]
+[ext_resource type="AudioStream" uid="uid://cf1h804upxp23" path="res://Audio/Music/level start.mp3" id="2_3liat"]
 [ext_resource type="AudioStream" uid="uid://djuqeo3qkrhiq" path="res://Audio/Music/moodmode-a-video-game-248444.mp3" id="2_41sdd"]
 [ext_resource type="AudioStream" uid="uid://wj0kpfmkroef" path="res://Audio/Music/moodmode-retro-gaming-248421.mp3" id="3_3liat"]
 [ext_resource type="AudioStream" uid="uid://dt7nwm8gf5g55" path="res://Audio/Music/moodmode-that-game-arcade-236111.mp3" id="4_yrb1k"]
 
+[sub_resource type="Animation" id="Animation_3liat"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Track1:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-10.425]
+}
+
+[sub_resource type="Animation" id="Animation_yrb1k"]
+resource_name = "ease_in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Track1:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-42.098, -10.425]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w2f23"]
+_data = {
+&"RESET": SubResource("Animation_3liat"),
+&"ease_in": SubResource("Animation_yrb1k")
+}
+
 [node name="MainMenuMusic" type="Node2D" unique_id=804545339]
 script = ExtResource("1_41sdd")
+
+[node name="LevelStart" type="AudioStreamPlayer2D" parent="." unique_id=2046563957]
+stream = ExtResource("2_3liat")
+volume_db = -15.293
+pitch_scale = 1.1
+autoplay = true
+bus = &"Music"
 
 [node name="Track1" type="AudioStreamPlayer2D" parent="." unique_id=1999604939]
 stream = ExtResource("1_48c0w")
 volume_db = -10.425
-autoplay = true
 bus = &"Music"
 
 [node name="Track2" type="AudioStreamPlayer2D" parent="." unique_id=2106563321]
@@ -30,6 +74,10 @@ stream = ExtResource("4_yrb1k")
 volume_db = -10.179
 bus = &"Music"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=916214819]
+libraries/ = SubResource("AnimationLibrary_w2f23")
+
+[connection signal="finished" from="LevelStart" to="." method="_on_level_start_finished"]
 [connection signal="finished" from="Track1" to="." method="_on_track_1_finished"]
 [connection signal="finished" from="Track2" to="." method="_on_track_2_finished"]
 [connection signal="finished" from="Track3" to="." method="_on_track_3_finished"]
