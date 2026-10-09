@@ -71,3 +71,17 @@ func _on_start_button_pressed() -> void:
 	$GridContainer/StartButton.disabled = true
 	for x in enemies.get_child_count():
 		enemies.get_child(x).find_child("StepTimer").start()
+
+func all_steps_finished() -> void: 
+	for n in $ScrollContainer/Commands.get_children():
+		$ScrollContainer/Commands.remove_child(n)
+	$GridContainer/HBoxContainer/UpButton.disabled = false
+	$GridContainer/HBoxContainer/RightButton.disabled = false
+	$GridContainer/HBoxContainer/DownButton.disabled = false
+	$GridContainer/HBoxContainer/LeftButton.disabled = false
+	$GridContainer/HBoxContainer/DeleteButton.disabled = false
+	$GridContainer/ClearButton.disabled = false
+	$GridContainer/StartButton.disabled = false
+	character_timer.stop()
+	for x in enemies.get_child_count():
+		enemies.get_child(x).find_child("StepTimer").stop()

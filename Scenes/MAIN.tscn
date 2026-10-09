@@ -11,10 +11,15 @@ character_timer = NodePath("../Level0/MainCharacter/Timer")
 enemies = NodePath("../Level0/Enemies")
 
 [node name="ShaderScene" parent="." unique_id=295264481 instance=ExtResource("1_c5rrr")]
+visible = false
 
 [node name="Level0" parent="." unique_id=2120250458 instance=ExtResource("2_rqf0l")]
 
+[node name="MainCharacter" parent="Level0" index="1" unique_id=1410427937 node_paths=PackedStringArray("Hud")]
+Hud = NodePath("../../HUD")
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1258235828]
+position = Vector2(-155, -36)
 anchor_mode = 0
 
 [editable path="Level0"]

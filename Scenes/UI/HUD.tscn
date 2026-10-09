@@ -10,8 +10,10 @@ script = ExtResource("1_omqfp")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1609.0
-offset_bottom = -768.0
+offset_left = 1678.0
+offset_top = 7.0
+offset_right = 69.0
+offset_bottom = -761.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment_horizontal = 2
@@ -41,9 +43,9 @@ theme = ExtResource("2_qc5w2")
 text = "Q"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=197574095]
-offset_left = 1609.0
+offset_left = 1763.0
 offset_top = 184.0
-offset_right = 1920.0
+offset_right = 2074.0
 offset_bottom = 870.0
 
 [node name="Commands" type="VBoxContainer" parent="ScrollContainer" unique_id=318223349]
@@ -55,11 +57,13 @@ size_flags_vertical = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1612.0
-offset_top = 887.0
-offset_right = -5.0
+offset_left = 1742.0001
+offset_top = 885.0
+offset_right = 125.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.7200024, 1)
 offset_transform_enabled = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GridContainer" unique_id=1573397922]
@@ -96,7 +100,7 @@ text = "Start"
 
 [node name="StopButtom" type="Button" parent="GridContainer" unique_id=235369478]
 layout_mode = 2
-text = "Stop"
+text = "Restart"
 
 [connection signal="pressed" from="GridContainer/HBoxContainer/UpButton" to="." method="_on_up_button_pressed"]
 [connection signal="pressed" from="GridContainer/HBoxContainer/RightButton" to="." method="_on_right_button_pressed"]

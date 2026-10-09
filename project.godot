@@ -27,8 +27,8 @@ GlobalVars="*uid://cu6e1eabfx0nk"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=2304
+window/size/viewport_height=1296
 window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"

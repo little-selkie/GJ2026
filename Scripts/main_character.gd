@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var Grid: Node2D
+@export var Hud: CanvasLayer
 
 func _ready() -> void:
 	$Timer.wait_time = GlobalVars.time_step
@@ -43,5 +44,6 @@ func _on_timer_timeout() -> void:
 		move()
 		GlobalVars.move_step = GlobalVars.move_step + 1
 	else:
-		GlobalVars.coins = 0
-		get_tree().reload_current_scene()
+		#GlobalVars.coins = 0
+		#get_tree().reload_current_scene()
+		Hud.all_steps_finished()
