@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://40fj7usru4ld" path="res://Scenes/TestScenes/CRTFilter.gdshader" id="2_fe8sf"]
 [ext_resource type="PackedScene" uid="uid://csn6i548j52sw" path="res://Scenes/TestScenes/GYM.tscn" id="3_1omkh"]
 [ext_resource type="Shader" uid="uid://dr1gou7tytvfx" path="res://Scenes/TestScenes/CRTFilerAnimatedShader.gdshader" id="3_5qkg8"]
+[ext_resource type="Shader" uid="uid://b6mjkfc1h27d4" path="res://Scenes/TestScenes/CRTFilterFinal.gdshader" id="4_635xr"]
 [ext_resource type="PackedScene" uid="uid://cjo64evrf3wms" path="res://Scenes/UI/HUD.tscn" id="4_fe8sf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fut4u"]
@@ -27,12 +28,35 @@ shader_parameter/vinnette_alpla = 1.0
 shader_parameter/vinnette_inner_radius = 0.0
 shader_parameter/vinnette_outer_radius = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qjxw2"]
+shader = ExtResource("4_635xr")
+shader_parameter/curvature = 0.1
+shader_parameter/corner_radius = 0.06
+shader_parameter/border_color = Color(0, 0, 0, 1)
+shader_parameter/scanlines = 0.35
+shader_parameter/scanline_size = 3.0
+shader_parameter/vignette = 0.35
+shader_parameter/brightness = 1.1
+shader_parameter/rgb_mask = false
+shader_parameter/mask_strength = 0.3
+shader_parameter/scanlines_1 = 500.0
+shader_parameter/scanlines_2 = 25.0
+shader_parameter/scan_reduction = 0.1
+shader_parameter/animated_scan_speed_1 = 1.0
+shader_parameter/animated_scan_speed_2 = 0.4
+shader_parameter/noise_strength = 0.04
+shader_parameter/noise_speed = 12.0
+shader_parameter/radial_vignette_alpha = 0.2
+shader_parameter/radial_vignette_inner_radius = 0.0
+shader_parameter/radial_vignette_outer_radius = 1.0
+
 [node name="TestScene" type="Node2D" unique_id=2080781036]
 script = ExtResource("1_g28u0")
 
 [node name="CRT_Filter" type="CanvasLayer" parent="." unique_id=292506413]
 
 [node name="CRT_Filter_Shader" type="ColorRect" parent="CRT_Filter" unique_id=1468482936]
+visible = false
 material = SubResource("ShaderMaterial_fut4u")
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +66,17 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="CRT_Filer_Animated_Shader" type="ColorRect" parent="CRT_Filter" unique_id=1656686858]
+visible = false
 material = SubResource("ShaderMaterial_ddoef")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CRT_Filter_Final" type="ColorRect" parent="CRT_Filter" unique_id=8266135]
+material = SubResource("ShaderMaterial_qjxw2")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
