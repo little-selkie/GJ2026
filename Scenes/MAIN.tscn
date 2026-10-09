@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cjo64evrf3wms" path="res://Scenes/UI/HUD.tscn" id="1_8as8m"]
 [ext_resource type="PackedScene" uid="uid://nnhgnhc6rhnc" path="res://Scenes/ShaderScenes/ShaderScene.tscn" id="1_c5rrr"]
 [ext_resource type="PackedScene" uid="uid://c6paiynfwrwjb" path="res://Scenes/LevelScenes/Level_0.tscn" id="2_rqf0l"]
+[ext_resource type="PackedScene" uid="uid://rim5g613n5l0" path="res://Scenes/AudioScenes/MainMenuMusic.tscn" id="4_783md"]
 
 [node name="MAIN" type="Node2D" unique_id=1001715188]
 
@@ -20,6 +21,8 @@ Hud = NodePath("../../HUD")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1258235828]
 position = Vector2(-155, -36)
 anchor_mode = 0
+
+[node name="MainMenuMusic" parent="." unique_id=804545339 instance=ExtResource("4_783md")]
 
 [editable path="Level0"]
 [editable path="Level0/BgGrid"]
