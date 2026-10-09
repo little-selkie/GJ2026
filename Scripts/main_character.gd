@@ -18,15 +18,23 @@ func move() -> void:
 	if GlobalVars.move_array[GlobalVars.move_step] == "Up":
 		if Grid.check_if_wall(Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y - 1)):
 			Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y - 1)
+		else:
+			$AnimationPlayer.play("wall_hit")
 	if GlobalVars.move_array[GlobalVars.move_step] == "Down":
 		if Grid.check_if_wall(Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y + 1)):
 			Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y + 1)
+		else:
+			$AnimationPlayer.play("wall_hit")
 	if GlobalVars.move_array[GlobalVars.move_step] == "Left":
 		if Grid.check_if_wall(Vector2i(Grid.MCOriginPoint_atlas.x - 1, Grid.MCOriginPoint_atlas.y)):
 			Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x - 1, Grid.MCOriginPoint_atlas.y)
+		else:
+			$AnimationPlayer.play("wall_hit")
 	if GlobalVars.move_array[GlobalVars.move_step] == "Right":
 		if Grid.check_if_wall(Vector2i(Grid.MCOriginPoint_atlas.x + 1, Grid.MCOriginPoint_atlas.y)):
 			Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x + 1, Grid.MCOriginPoint_atlas.y)
+		else:
+			$AnimationPlayer.play("wall_hit")
 	if MCOriginPoint_temp != Grid.MCOriginPoint_atlas:
 		Grid.get_global_coords(Grid.MCOriginPoint_atlas)
 		global_position = Grid.MCOriginPoint

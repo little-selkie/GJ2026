@@ -96,5 +96,5 @@ navigation_visibility_mode = 1
 
 [node name="WallHit" type="AudioStreamPlayer2D" parent="." unique_id=1272328485]
 stream = ExtResource("6_4t4p5")
-volume_db = 5.753
+volume_db = 8.408
 bus = &"SFX"

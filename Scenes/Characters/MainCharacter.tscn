@@ -6,6 +6,42 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(128, 128)
 
+[sub_resource type="Animation" id="Animation_4flse"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j5d3a"]
+resource_name = "wall_hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16, 0.37, 0.53, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-7, 0), Vector2(8, 0), Vector2(-6, 0), Vector2(7, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cbltj"]
+_data = {
+&"RESET": SubResource("Animation_4flse"),
+&"wall_hit": SubResource("Animation_j5d3a")
+}
+
 [node name="MainCharacter" type="Node2D" unique_id=1410427937]
 script = ExtResource("1_4flse")
 
@@ -20,6 +56,9 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="Timer" type="Timer" parent="." unique_id=27676574]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=542239156]
+libraries/ = SubResource("AnimationLibrary_cbltj")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
