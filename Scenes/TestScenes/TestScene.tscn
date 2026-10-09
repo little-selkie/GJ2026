@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://hdaeddc2o8rk"]
 
 [ext_resource type="Script" uid="uid://cdjlpklv8uuct" path="res://Scripts/TestScripts/test_scene.gd" id="1_g28u0"]
-[ext_resource type="Texture2D" uid="uid://bpjp5kymrjj35" path="res://Images/TestImages/icon.svg" id="2_1omkh"]
 [ext_resource type="Shader" uid="uid://40fj7usru4ld" path="res://Scenes/TestScenes/CRTFilter.gdshader" id="2_fe8sf"]
+[ext_resource type="PackedScene" uid="uid://csn6i548j52sw" path="res://Scenes/TestScenes/GYM.tscn" id="3_1omkh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fut4u"]
 shader = ExtResource("2_fe8sf")
@@ -29,7 +29,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TestSprite" type="Sprite2D" parent="." unique_id=1214430514]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(582, 280)
-texture = ExtResource("2_1omkh")
+[node name="Gym" parent="." unique_id=80313847 instance=ExtResource("3_1omkh")]
