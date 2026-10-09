@@ -1,10 +1,12 @@
 extends CanvasLayer
 
 @export var character_timer: Timer
-@export var enemies_timers: Array
+@export var enemies: Node2D
+var enemies_array: Array
 
 func _ready() -> void:
-	pass
+	for x in enemies.get_child_count()-1:
+		enemies_array.append(enemies.get_child(x).find_child("StepTimer"))
 
 func _process(delta: float) -> void:
 	$AspectRatioContainer/VBoxContainer/Score/Number.text = str(GlobalVars.coins)
@@ -60,5 +62,5 @@ func _on_stop_buttom_pressed() -> void:
 
 func _on_start_button_pressed() -> void:
 	character_timer.start()
-	for x in enemies_timers.size()-1:
-		enemies_timers[x].start()
+	for x in enemies.get_child_count():
+		enemies.get_child(x).get_child(enemies.get_child_count()+1).start()

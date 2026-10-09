@@ -26,9 +26,9 @@ Grid = NodePath("../BgGrid")
 Grid = NodePath("../../BgGrid")
 movement_pattern = Array[int]([1, 1, 2, 1, 1])
 
-[node name="HUD" parent="." unique_id=1184858684 node_paths=PackedStringArray("character_timer") instance=ExtResource("5_tq72t")]
+[node name="HUD" parent="." unique_id=1184858684 node_paths=PackedStringArray("character_timer", "enemies") instance=ExtResource("5_tq72t")]
 character_timer = NodePath("../MainCharacter/Timer")
-enemies_timers = [NodePath("../Enemies/Enemy1/StepTimer")]
+enemies = NodePath("../Enemies")
 
 [editable path="BgGrid"]
 [editable path="MainCharacter"]
