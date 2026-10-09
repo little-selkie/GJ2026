@@ -14,13 +14,17 @@ func _process(_elta: float) -> void:
 func move() -> void:
 	var MCOriginPoint_temp: Vector2i = Grid.MCOriginPoint_atlas
 	if Input.is_action_just_pressed("Move Up"):
-		Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y - 1)
+		if Grid.check_if_wall(Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y - 1)):
+			Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y - 1)
 	if Input.is_action_just_pressed("Move Down"):
-		Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y + 1)
+		if Grid.check_if_wall(Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y + 1)):
+			Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y + 1)
 	if Input.is_action_just_pressed("Move Left"):
-		Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x - 1, Grid.MCOriginPoint_atlas.y)
+		if Grid.check_if_wall(Vector2i(Grid.MCOriginPoint_atlas.x - 1, Grid.MCOriginPoint_atlas.y)):
+			Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x - 1, Grid.MCOriginPoint_atlas.y)
 	if Input.is_action_just_pressed("Move Right"):
-		Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x + 1, Grid.MCOriginPoint_atlas.y)
+		if Grid.check_if_wall(Vector2i(Grid.MCOriginPoint_atlas.x + 1, Grid.MCOriginPoint_atlas.y)):
+			Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x + 1, Grid.MCOriginPoint_atlas.y)
 	if MCOriginPoint_temp != Grid.MCOriginPoint_atlas:
 		Grid.get_global_coords(Grid.MCOriginPoint_atlas)
 		global_position = Grid.MCOriginPoint

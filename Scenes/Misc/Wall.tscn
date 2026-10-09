@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://rkr44dpi7bp3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kjt57"]
+load_path = "res://.godot/imported/icon.svg-2bfc05740cf8aaffb9bd3a813062ac88.ctex"
+
+[node name="Wall" type="Node2D" unique_id=1574717582]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=171201942]
+self_modulate = Color(2.8165433, 2.8165433, 2.8165433, 1)
+scale = Vector2(0.359999, 0.359999)
+texture = SubResource("CompressedTexture2D_kjt57")
