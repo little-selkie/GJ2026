@@ -2,6 +2,7 @@ extends Node2D
 
 @export var Grid: Node2D
 @export var Hud: CanvasLayer
+var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	$Timer.wait_time = GlobalVars.time_step
@@ -18,21 +19,25 @@ func move() -> void:
 	if GlobalVars.move_array[GlobalVars.move_step] == "Up":
 		if Grid.check_if_wall(Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y - 1)):
 			Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y - 1)
+			$AnimationPlayer.play("idle")
 		else:
 			$AnimationPlayer.play("wall_hit")
 	if GlobalVars.move_array[GlobalVars.move_step] == "Down":
 		if Grid.check_if_wall(Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y + 1)):
 			Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x, Grid.MCOriginPoint_atlas.y + 1)
+			$AnimationPlayer.play("idle")
 		else:
 			$AnimationPlayer.play("wall_hit")
 	if GlobalVars.move_array[GlobalVars.move_step] == "Left":
 		if Grid.check_if_wall(Vector2i(Grid.MCOriginPoint_atlas.x - 1, Grid.MCOriginPoint_atlas.y)):
 			Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x - 1, Grid.MCOriginPoint_atlas.y)
+			$AnimationPlayer.play("idle")
 		else:
 			$AnimationPlayer.play("wall_hit")
 	if GlobalVars.move_array[GlobalVars.move_step] == "Right":
 		if Grid.check_if_wall(Vector2i(Grid.MCOriginPoint_atlas.x + 1, Grid.MCOriginPoint_atlas.y)):
 			Grid.MCOriginPoint_atlas = Vector2i(Grid.MCOriginPoint_atlas.x + 1, Grid.MCOriginPoint_atlas.y)
+			$AnimationPlayer.play("idle")
 		else:
 			$AnimationPlayer.play("wall_hit")
 	if MCOriginPoint_temp != Grid.MCOriginPoint_atlas:
@@ -55,11 +60,14 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_timer_timeout() -> void:
 	if GlobalVars.move_step <= GlobalVars.move_array.size()-1:
 		move()
+		$MoveSound.play()
+		$SoundTimer.start()
 		GlobalVars.move_step = GlobalVars.move_step + 1
 	else:
 		#GlobalVars.coins = 0
 		#get_tree().reload_current_scene()
 		Hud.all_steps_finished()
+		$AnimationPlayer.play("idle")
 		GlobalVars.move_array.clear()
 		GlobalVars.move_step = 0
 		GlobalVars.total_attempts -= 1
@@ -73,3 +81,9 @@ func _on_timer_timeout() -> void:
 
 func _on_death_timer_timeout() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_sound_timer_timeout() -> void:
+	$MoveSound.stop()
+	var my_random_number = rng.randf_range(1, 1.4)
+	$MoveSound.pitch_scale = my_random_number

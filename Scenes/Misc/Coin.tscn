@@ -67,6 +67,7 @@ shape = SubResource("RectangleShape2D_xrivr")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1166138268]
 stream = ExtResource("3_ktrrt")
 volume_db = -7.966
+bus = &"SFX"
 
 [node name="Timer" type="Timer" parent="." unique_id=349469083]
 wait_time = 0.22
