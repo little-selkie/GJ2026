@@ -21,6 +21,5 @@ position = Vector2(-4, -5.5)
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="StepTimer" type="Timer" parent="." unique_id=1683482619]
-autostart = true
 
 [connection signal="timeout" from="StepTimer" to="." method="_on_step_timer_timeout"]

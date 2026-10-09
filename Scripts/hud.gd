@@ -1,4 +1,64 @@
 extends CanvasLayer
 
+@export var character_timer: Timer
+@export var enemies_timers: Array
+
+func _ready() -> void:
+	pass
+
 func _process(delta: float) -> void:
-	$AspectRatioContainer/Score/Number.text = str(GlobalVars.coins)
+	$AspectRatioContainer/VBoxContainer/Score/Number.text = str(GlobalVars.coins)
+
+func add_move(direction) -> void:
+	add_move_ui(direction)
+	GlobalVars.move_array.append(direction)
+
+func add_move_ui(direction) -> void:
+	var new_child = HBoxContainer.new()
+	$ScrollContainer/Commands.add_child(new_child)
+	var new_label = Label.new()
+	new_label.text = str(direction)
+	new_child.add_child(new_label)
+	var new_image = TextureRect.new()
+	new_image.texture = load("res://Images/TestImages/icon.svg")
+	new_image.expand_mode = 2
+	new_child.add_child(new_image)
+
+func _on_clear_button_pressed() -> void:
+	GlobalVars.move_array = []
+	for n in $ScrollContainer/Commands.get_children():
+		$ScrollContainer/Commands.remove_child(n)
+
+
+
+func _on_up_button_pressed() -> void:
+	add_move("Up")
+
+
+func _on_right_button_pressed() -> void:
+	add_move("Right")
+
+
+func _on_down_button_pressed() -> void:
+	add_move("Down")
+
+
+func _on_left_button_pressed() -> void:
+	add_move("Left")
+
+
+func _on_delete_button_pressed() -> void:
+	if $ScrollContainer/Commands.get_child_count() != 0:
+		$ScrollContainer/Commands.get_child($ScrollContainer/Commands.get_child_count()-1).queue_free()
+		GlobalVars.move_array.remove_at(GlobalVars.move_array.size()-1)
+
+
+func _on_stop_buttom_pressed() -> void:
+	GlobalVars.move_step = 0
+	get_tree().reload_current_scene()
+
+
+func _on_start_button_pressed() -> void:
+	character_timer.start()
+	for x in enemies_timers.size()-1:
+		enemies_timers[x].start()
