@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cjo64evrf3wms" path="res://Scenes/UI/HUD.tscn" id="1_8as8m"]
 [ext_resource type="PackedScene" uid="uid://nnhgnhc6rhnc" path="res://Scenes/ShaderScenes/ShaderScene.tscn" id="1_c5rrr"]
 [ext_resource type="PackedScene" uid="uid://c6paiynfwrwjb" path="res://Scenes/LevelScenes/Level_0.tscn" id="2_rqf0l"]
+[ext_resource type="PackedScene" uid="uid://jirjf1fn0rr3" path="res://Scenes/Misc/Door.tscn" id="4_5c1w6"]
 [ext_resource type="PackedScene" uid="uid://rim5g613n5l0" path="res://Scenes/AudioScenes/MainMenuMusic.tscn" id="4_783md"]
 
 [node name="MAIN" type="Node2D" unique_id=1001715188]
@@ -14,6 +15,9 @@ enemies = NodePath("../Level0/Enemies")
 [node name="ShaderScene" parent="." unique_id=295264481 instance=ExtResource("1_c5rrr")]
 
 [node name="Level0" parent="." unique_id=2120250458 instance=ExtResource("2_rqf0l")]
+
+[node name="BgGrid" parent="Level0" index="0" unique_id=2137764861]
+door_object = ExtResource("4_5c1w6")
 
 [node name="MainCharacter" parent="Level0" index="1" unique_id=1410427937 node_paths=PackedStringArray("Hud")]
 Hud = NodePath("../../HUD")

@@ -4,6 +4,7 @@ var MCOriginPoint: Vector2
 var MCOriginPoint_atlas: Vector2i 
 @export var coin_object: PackedScene
 @export var wall_object: PackedScene
+@export var door_object: PackedScene
 
 func _ready() -> void:
 	$StepTimer.wait_time = GlobalVars.time_step
@@ -29,19 +30,19 @@ func _ready() -> void:
 		for tile_position in $ActionGrid.get_used_cells():
 			var wall
 			var wall_spawn_location
+			var door
+			var door_spawn_location
 			if $ActionGrid.get_cell_tile_data(tile_position).get_custom_data("is_not_traversable") == true and $ActionGrid.get_cell_tile_data(tile_position).get_custom_data("door") == false:
 				wall = wall_object.instantiate()
 				wall_spawn_location = $ActionGrid.map_to_local(tile_position)
 				wall.global_position = wall_spawn_location
 				$Walls.add_child(wall)
 			if $ActionGrid.get_cell_tile_data(tile_position).get_custom_data("is_not_traversable") == true and $ActionGrid.get_cell_tile_data(tile_position).get_custom_data("door") == true:
-				wall = wall_object.instantiate()
-				wall_spawn_location = $ActionGrid.map_to_local(tile_position)
-				wall.global_position = wall_spawn_location
-				wall.modulate = Color(0.0, 1.915, 0.0, 1.0)
-				wall.name = "TheDoor"
-				$Walls.add_child(wall)
-				wall.name = "TheDoor"
+				door = door_object.instantiate()
+				door_spawn_location = $ActionGrid.map_to_local(tile_position)
+				door.global_position = door_spawn_location
+				door.name = "TheDoor"
+				$Walls.add_child(door)
 
 func get_global_coords(tile_position) -> void:
 	if $ActionGrid.get_cell_tile_data(tile_position) != null:
@@ -82,6 +83,7 @@ func check_if_wall(tile_coordinates) -> bool:
 	return is_wall
 
 func open_the_door() -> void:
+	door_object.get_child(0).visible = false
 	for tile_position in $ActionGrid.get_used_cells():
 		if $ActionGrid.get_cell_tile_data(tile_position).get_custom_data("door") == true:
 			$ActionGrid.erase_cell(tile_position)

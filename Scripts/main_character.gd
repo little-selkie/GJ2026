@@ -80,6 +80,7 @@ func _on_timer_timeout() -> void:
 
 
 func _on_death_timer_timeout() -> void:
+	GlobalVars.total_attempts = 5
 	get_tree().reload_current_scene()
 
 
