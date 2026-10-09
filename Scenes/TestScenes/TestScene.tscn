@@ -2,9 +2,32 @@
 
 [ext_resource type="Script" uid="uid://cdjlpklv8uuct" path="res://Scripts/TestScripts/test_scene.gd" id="1_g28u0"]
 [ext_resource type="Texture2D" uid="uid://bpjp5kymrjj35" path="res://Images/TestImages/icon.svg" id="2_1omkh"]
+[ext_resource type="Shader" uid="uid://40fj7usru4ld" path="res://Scenes/TestScenes/CRTFilter.gdshader" id="2_fe8sf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fut4u"]
+shader = ExtResource("2_fe8sf")
+shader_parameter/curvature = 0.1
+shader_parameter/corner_radius = 0.06
+shader_parameter/border_color = Color(0, 0, 0, 1)
+shader_parameter/scanlines = 0.35
+shader_parameter/scanline_size = 3.0
+shader_parameter/vignette = 0.35
+shader_parameter/brightness = 1.1
+shader_parameter/rgb_mask = false
+shader_parameter/mask_strength = 0.3
 
 [node name="TestScene" type="Node2D" unique_id=2080781036]
 script = ExtResource("1_g28u0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=292506413]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1468482936]
+material = SubResource("ShaderMaterial_fut4u")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TestSprite" type="Sprite2D" parent="." unique_id=1214430514]
 modulate = Color(0, 1, 1, 1)
