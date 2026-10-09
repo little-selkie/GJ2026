@@ -62,5 +62,12 @@ func _on_stop_buttom_pressed() -> void:
 
 func _on_start_button_pressed() -> void:
 	character_timer.start()
+	$GridContainer/HBoxContainer/UpButton.disabled = true
+	$GridContainer/HBoxContainer/RightButton.disabled = true
+	$GridContainer/HBoxContainer/DownButton.disabled = true
+	$GridContainer/HBoxContainer/LeftButton.disabled = true
+	$GridContainer/HBoxContainer/DeleteButton.disabled = true
+	$GridContainer/ClearButton.disabled = true
+	$GridContainer/StartButton.disabled = true
 	for x in enemies.get_child_count():
 		enemies.get_child(x).find_child("StepTimer").start()
