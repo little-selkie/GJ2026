@@ -15,7 +15,7 @@ resource_name = "MC_Origin"
 texture = ExtResource("1_5yihk")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
-0:0/0/modulate = Color(0.85490197, 0.18039216, 0.18039216, 0.23529412)
+0:0/0/modulate = Color(0.16614726, 0.5409259, 0.54195845, 0.23529412)
 0:0/0/custom_data_0 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xmmki"]
@@ -26,15 +26,26 @@ texture_region_size = Vector2i(128, 128)
 0:0/0/modulate = Color(1, 1, 0.10980392, 0.12156863)
 0:0/0/custom_data_1 = true
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6mb66"]
+resource_name = "Enemy_Placement"
+texture = ExtResource("1_5yihk")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/modulate = Color(1, 0.007843138, 0.050980393, 0.5647059)
+0:0/0/custom_data_2 = true
+
 [sub_resource type="TileSet" id="TileSet_xrivr"]
 tile_size = Vector2i(128, 128)
 custom_data_layer_0/name = "mc_origin_point"
 custom_data_layer_0/type = 1
 custom_data_layer_1/name = "coin_tile"
 custom_data_layer_1/type = 1
+custom_data_layer_2/name = "enemy_origin_point"
+custom_data_layer_2/type = 1
 sources/0 = SubResource("TileSetAtlasSource_b24im")
 sources/1 = SubResource("TileSetAtlasSource_5yihk")
 sources/2 = SubResource("TileSetAtlasSource_xmmki")
+sources/3 = SubResource("TileSetAtlasSource_6mb66")
 
 [node name="BgGrid" type="Node2D" unique_id=2137764861]
 script = ExtResource("1_b24im")
@@ -46,8 +57,10 @@ tile_set = SubResource("TileSet_xrivr")
 navigation_visibility_mode = 1
 
 [node name="ActionGrid" type="TileMapLayer" parent="." unique_id=565875614]
-tile_map_data = PackedByteArray("AAAGAAMAAQAAAAAAAAAEAAYAAgAAAAAAAAAFAAYAAgAAAAAAAAADAAYAAgAAAAAAAAAJAAIAAgAAAAAAAAAJAAMAAgAAAAAAAAAJAAQAAgAAAAAAAAACAAIAAgAAAAAAAAADAAEAAgAAAAAAAAABAAQAAgAAAAAAAAAKAAYAAgAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAGAAMAAQAAAAAAAAAEAAYAAgAAAAAAAAAFAAYAAgAAAAAAAAADAAYAAgAAAAAAAAAJAAIAAgAAAAAAAAAJAAMAAgAAAAAAAAAJAAQAAgAAAAAAAAACAAIAAgAAAAAAAAADAAEAAgAAAAAAAAABAAQAAgAAAAAAAAAKAAYAAgAAAAAAAAAHAAcAAwAAAAAAAAALAAIAAwAAAAAAAAA=")
 tile_set = SubResource("TileSet_xrivr")
 navigation_visibility_mode = 1
 
 [node name="Coins" type="Node2D" parent="." unique_id=1778496317]
+
+[node name="StepTimer" type="Timer" parent="." unique_id=429231028]

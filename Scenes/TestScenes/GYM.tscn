@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cq7q40vcc8yt6" path="res://Scenes/BGGrid.tscn" id="1_a0dqf"]
 [ext_resource type="PackedScene" uid="uid://d4hbtj23x0id1" path="res://Scenes/Characters/MainCharacter.tscn" id="2_jwka5"]
+[ext_resource type="PackedScene" uid="uid://82g33acv4i6t" path="res://Scenes/Characters/Enemy.tscn" id="3_jwka5"]
 
 [node name="Gym" type="Node2D" unique_id=80313847]
 
@@ -9,3 +10,12 @@
 
 [node name="MainCharacter" parent="." unique_id=1410427937 node_paths=PackedStringArray("Grid") instance=ExtResource("2_jwka5")]
 Grid = NodePath("../BgGrid")
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1724274978]
+
+[node name="Enemy1" parent="Enemies" unique_id=1968893694 node_paths=PackedStringArray("Grid") instance=ExtResource("3_jwka5")]
+Grid = NodePath("../../BgGrid")
+movement_pattern = Array[int]([1, 1, 2, 1, 1])
+
+[node name="Enemy2" parent="Enemies" unique_id=1123305856 node_paths=PackedStringArray("Grid") instance=ExtResource("3_jwka5")]
+Grid = NodePath("../../BgGrid")

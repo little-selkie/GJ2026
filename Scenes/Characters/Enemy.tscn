@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://82g33acv4i6t"]
+
+[ext_resource type="Script" uid="uid://dw4scxpc8o14d" path="res://Scripts/enemy.gd" id="1_3vkvf"]
+[ext_resource type="Texture2D" uid="uid://bpjp5kymrjj35" path="res://Images/TestImages/icon.svg" id="1_jf14c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(50, 55)
+
+[node name="Enemy" type="Node2D" unique_id=1968893694]
+script = ExtResource("1_3vkvf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=674729081]
+self_modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_jf14c")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1127197902]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=561070803]
+position = Vector2(-4, -5.5)
+shape = SubResource("RectangleShape2D_xrivr")
+
+[node name="StepTimer" type="Timer" parent="." unique_id=1683482619]
+autostart = true
+
+[connection signal="timeout" from="StepTimer" to="." method="_on_step_timer_timeout"]
