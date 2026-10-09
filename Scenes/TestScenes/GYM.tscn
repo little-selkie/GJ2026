@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://csn6i548j52sw"]
+
+[ext_resource type="PackedScene" uid="uid://cq7q40vcc8yt6" path="res://Scenes/BGGrid.tscn" id="1_a0dqf"]
+[ext_resource type="PackedScene" uid="uid://d4hbtj23x0id1" path="res://Scenes/Characters/MainCharacter.tscn" id="2_jwka5"]
+
+[node name="Gym" type="Node2D" unique_id=80313847]
+
+[node name="BgGrid" parent="." unique_id=2137764861 instance=ExtResource("1_a0dqf")]
+
+[node name="MainCharacter" parent="." unique_id=1410427937 node_paths=PackedStringArray("Grid") instance=ExtResource("2_jwka5")]
+Grid = NodePath("../BgGrid")
