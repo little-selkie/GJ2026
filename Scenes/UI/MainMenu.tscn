@@ -1,36 +1,550 @@
 [gd_scene format=3 uid="uid://cvkiee62sx8wk"]
 
 [ext_resource type="Script" uid="uid://bvve5b0c7l37r" path="res://Scripts/main_menu.gd" id="1_g18y6"]
+[ext_resource type="PackedScene" uid="uid://nnhgnhc6rhnc" path="res://Scenes/ShaderScenes/ShaderScene.tscn" id="2_72sra"]
+[ext_resource type="Texture2D" uid="uid://cj5w5rvmhaga1" path="res://Images/Props/playmachine.png" id="4_2v0rb"]
+[ext_resource type="Texture2D" uid="uid://dmtjyy3dejxkp" path="res://Images/Buttons/button_right.png" id="6_sqe33"]
+[ext_resource type="Texture2D" uid="uid://ca6yxc8xv41r3" path="res://Images/Buttons/button_right_pressed.png" id="7_p7t0b"]
+[ext_resource type="Texture2D" uid="uid://csucfbpih8n4g" path="res://Images/Buttons/button_down.png" id="8_4b2gn"]
+[ext_resource type="Texture2D" uid="uid://dx147w4yuduf1" path="res://Images/Buttons/button_down_pressed.png" id="9_q0kel"]
+[ext_resource type="Texture2D" uid="uid://botmv8hylt80l" path="res://Images/Buttons/button_left.png" id="10_uab0n"]
+[ext_resource type="Texture2D" uid="uid://dubl68x8iifv0" path="res://Images/Buttons/button_left_pressed.png" id="11_1j211"]
+[ext_resource type="Texture2D" uid="uid://c71iq3sklyh3w" path="res://Images/Buttons/button_up.png" id="12_qe82h"]
+[ext_resource type="Texture2D" uid="uid://d4bynka8w0s3r" path="res://Images/Buttons/button_up_pressed.png" id="13_uddis"]
+[ext_resource type="Texture2D" uid="uid://d0phmohsd8g0h" path="res://Images/Buttons/restart_button.png" id="14_y51v7"]
+[ext_resource type="Texture2D" uid="uid://nygp8s60urlo" path="res://Images/Buttons/restart_button_pressed.png" id="15_n4yjw"]
+[ext_resource type="Texture2D" uid="uid://duup7kap7kf2v" path="res://Images/Props/play_button.png" id="16_dwcil"]
+[ext_resource type="Texture2D" uid="uid://c0xiy76a2h64x" path="res://Images/Props/play_button_pressed.png" id="17_kggn2"]
+[ext_resource type="Texture2D" uid="uid://3qwshxtqaxim" path="res://Images/Props/mp3_player.png" id="18_hreik"]
+[ext_resource type="Theme" uid="uid://dpuidr0xvg03e" path="res://Scenes/UI/MP3Player_theme.tres" id="19_apby6"]
+[ext_resource type="AudioStream" uid="uid://cnywt7rh7n85w" path="res://Audio/SFX/DigitalButtonPressUp.mp3" id="20_p0yre"]
+[ext_resource type="AudioStream" uid="uid://cspfjychyvwwr" path="res://Audio/SFX/DigitalButtonPressRight.mp3" id="21_ifccy"]
+[ext_resource type="AudioStream" uid="uid://blmbx5y7fcsk8" path="res://Audio/SFX/DigitalButtonPressDown.mp3" id="22_many0"]
+[ext_resource type="AudioStream" uid="uid://c45d3m0unwwi5" path="res://Audio/SFX/DigitalButtonPressLeft.mp3" id="23_tjv02"]
+[ext_resource type="Theme" uid="uid://bnylknj7s7k7r" path="res://Scenes/UI/arcade_theme.tres" id="23_xwq8e"]
+[ext_resource type="AudioStream" uid="uid://bimojclxqyycc" path="res://Audio/SFX/PhysicalButtonPress.mp3" id="24_mreqc"]
+[ext_resource type="AudioStream" uid="uid://cf1h804upxp23" path="res://Audio/Music/level start.mp3" id="24_sdupg"]
 
-[node name="MainMenu" type="CanvasLayer" unique_id=794566307]
+[sub_resource type="Animation" id="Animation_jbjhr"]
+resource_name = "MP3move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MP3Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 3.3635879),
+"update": 0,
+"values": [Vector2(69, 1224), Vector2(69, 880)]
+}
+
+[sub_resource type="Animation" id="Animation_b3vmo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MP3Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(69, 1224)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dds1n"]
+_data = {
+&"MP3move": SubResource("Animation_jbjhr"),
+&"RESET": SubResource("Animation_b3vmo")
+}
+
+[sub_resource type="Animation" id="Animation_xwq8e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu/AnimationParts/Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1155)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/AnimationParts/Bot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1127)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu/AnimationParts/Whole:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sdupg"]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu/AnimationParts/Top:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.99),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -1155), Vector2(39.000004, -558.0001), Vector2(39.000004, -558.0001)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Menu/AnimationParts/Bot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 1.99),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 1127), Vector2(0, 590), Vector2(0, 590)]
+}
+
+[sub_resource type="Animation" id="Animation_2v0rb"]
+resource_name = "fade_to_level"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Menu/AnimationParts/Whole:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0009999999, 1.4, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2v0rb"]
+_data = {
+&"RESET": SubResource("Animation_xwq8e"),
+&"fade": SubResource("Animation_sdupg"),
+&"fade_to_level": SubResource("Animation_2v0rb")
+}
+
+[node name="MainMenu" type="Node2D" unique_id=1663011257]
 script = ExtResource("1_g18y6")
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=2134896708]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Menu" type="Control" parent="." unique_id=386890755]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
 
-[node name="Panel" type="Panel" parent="AspectRatioContainer" unique_id=1169614504]
-layout_mode = 2
+[node name="ColorRect" type="ColorRect" parent="Menu" unique_id=1460924269]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(57.2, 30.719997)
+mouse_filter = 1
+color = Color(3.008172e-09, 3.008172e-09, 0.12764448, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer" unique_id=1531835819]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1481566013]
+layout_mode = 0
+offset_left = 815.0
+offset_top = 436.0
+offset_right = 1476.0
+offset_bottom = 766.0
 
-[node name="StartButton" type="Button" parent="AspectRatioContainer/VBoxContainer" unique_id=276629325]
+[node name="Start" type="Button" parent="Menu/VBoxContainer" unique_id=951688179]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+theme = ExtResource("23_xwq8e")
 text = "Start"
 
-[node name="ExitButton" type="Button" parent="AspectRatioContainer/VBoxContainer" unique_id=474986636]
+[node name="PowerOff" type="Button" parent="Menu/VBoxContainer" unique_id=963361657]
+layout_mode = 2
+theme = ExtResource("23_xwq8e")
+disabled = true
+text = "Power Off"
+
+[node name="AnimationParts" type="Control" parent="Menu" unique_id=749670051]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Whole" type="ColorRect" parent="Menu/AnimationParts" unique_id=810209240]
+layout_mode = 0
+offset_top = 71.99988
+offset_right = 39.99998
+offset_bottom = 111.99988
+scale = Vector2(57.520004, 28.999998)
+color = Color(0, 0, 0, 1)
+
+[node name="Top" type="ColorRect" parent="Menu/AnimationParts" unique_id=2052224282]
+layout_mode = 0
+offset_top = -1155.0
+offset_right = 39.99998
+offset_bottom = -1115.0
+scale = Vector2(57.520004, 28.999998)
+color = Color(0, 0, 0, 1)
+
+[node name="Bot" type="ColorRect" parent="Menu/AnimationParts" unique_id=1123850499]
+layout_mode = 0
+offset_top = 1127.0
+offset_right = 40.0
+offset_bottom = 1167.0
+scale = Vector2(57.520004, 28.999998)
+color = Color(0, 0, 0, 1)
+
+[node name="ShaderScene" parent="." unique_id=295264481 instance=ExtResource("2_72sra")]
+
+[node name="CRT_Filter_Final" parent="ShaderScene/CRT_Filter" parent_id_path=PackedInt32Array(295264481, 1978822454) index="0" unique_id=1961594303]
+mouse_filter = 1
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1184858684]
+
+[node name="TextureRect" type="TextureRect" parent="HUD" unique_id=1718840263]
+offset_right = 2304.0
+offset_bottom = 1296.0
+texture = ExtResource("4_2v0rb")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HUD" unique_id=197574095]
+offset_left = 1729.0
+offset_top = 241.0
+offset_right = 2040.0
+offset_bottom = 927.0
+
+[node name="Commands" type="VBoxContainer" parent="HUD/ScrollContainer" unique_id=318223349]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buttons" type="Control" parent="HUD" unique_id=1610728450]
+modulate = Color(1.1755697, 0, 0, 1)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 49.0
+offset_bottom = 47.0
+
+[node name="RightButton" type="TextureButton" parent="HUD/Buttons" unique_id=626928718]
+layout_mode = 0
+offset_left = 1756.0
+offset_top = 1142.0
+offset_right = 1916.0
+offset_bottom = 1250.0
+disabled = true
+texture_normal = ExtResource("6_sqe33")
+texture_pressed = ExtResource("7_p7t0b")
+texture_hover = ExtResource("6_sqe33")
+texture_disabled = ExtResource("7_p7t0b")
+texture_focused = ExtResource("6_sqe33")
+
+[node name="DownButton" type="TextureButton" parent="HUD/Buttons" unique_id=87463901]
+layout_mode = 0
+offset_left = 1626.0
+offset_top = 1189.0
+offset_right = 1781.0
+offset_bottom = 1292.0
+texture_normal = ExtResource("8_4b2gn")
+texture_pressed = ExtResource("9_q0kel")
+texture_hover = ExtResource("8_4b2gn")
+texture_disabled = ExtResource("9_q0kel")
+texture_focused = ExtResource("8_4b2gn")
+
+[node name="LeftButton" type="TextureButton" parent="HUD/Buttons" unique_id=859260181]
+layout_mode = 0
+offset_left = 1456.0
+offset_top = 1141.0
+offset_right = 1630.0
+offset_bottom = 1250.0
+disabled = true
+texture_normal = ExtResource("10_uab0n")
+texture_pressed = ExtResource("11_1j211")
+texture_hover = ExtResource("10_uab0n")
+texture_disabled = ExtResource("11_1j211")
+texture_focused = ExtResource("10_uab0n")
+
+[node name="UpButton" type="TextureButton" parent="HUD/Buttons" unique_id=1621890619]
+layout_mode = 0
+offset_left = 1592.0
+offset_top = 1098.0
+offset_right = 1739.0
+offset_bottom = 1177.0
+texture_normal = ExtResource("12_qe82h")
+texture_pressed = ExtResource("13_uddis")
+texture_hover = ExtResource("12_qe82h")
+texture_disabled = ExtResource("13_uddis")
+texture_focused = ExtResource("12_qe82h")
+
+[node name="StopButtom" type="TextureButton" parent="HUD/Buttons" unique_id=413786123]
+self_modulate = Color(0.8745098, 1, 1, 1)
+layout_mode = 0
+offset_left = 1951.0
+offset_top = 1125.0
+offset_right = 2179.0
+offset_bottom = 1254.0
+disabled = true
+texture_normal = ExtResource("14_y51v7")
+texture_pressed = ExtResource("15_n4yjw")
+texture_hover = ExtResource("14_y51v7")
+texture_disabled = ExtResource("15_n4yjw")
+texture_focused = ExtResource("14_y51v7")
+
+[node name="StartButton" type="TextureButton" parent="HUD" unique_id=1165277679]
+modulate = Color(0.6431373, 1, 1, 1)
+offset_left = 950.0
+offset_top = 1054.0
+offset_right = 1364.0
+offset_bottom = 1284.0
+texture_normal = ExtResource("16_dwcil")
+texture_pressed = ExtResource("17_kggn2")
+texture_hover = ExtResource("16_dwcil")
+texture_disabled = ExtResource("17_kggn2")
+texture_focused = ExtResource("16_dwcil")
+
+[node name="MP3Player" type="Control" parent="HUD" unique_id=1448928596]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 69.0
+offset_top = 1224.0
+offset_right = 109.0
+offset_bottom = 1263.9998
+
+[node name="ColorRect" type="ColorRect" parent="HUD/MP3Player" unique_id=1088833368]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 104.0
+offset_right = 174.0
+offset_bottom = 144.0
+scale = Vector2(9.64, 3.9999952)
+color = Color(0, 0.27058825, 1, 1)
+
+[node name="TextureRect" type="TextureRect" parent="HUD/MP3Player" unique_id=941229939]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("18_hreik")
+
+[node name="CheckButton" type="CheckButton" parent="HUD/MP3Player" unique_id=1253444523]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 44.0
+offset_bottom = 24.0
+scale = Vector2(17.933197, 2.9736645)
+
+[node name="SelectionBG" type="VBoxContainer" parent="HUD/MP3Player" unique_id=367531348]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 106.0
+offset_right = 465.0
+offset_bottom = 152.0
+
+[node name="MasterFocus" type="Panel" parent="HUD/MP3Player/SelectionBG" unique_id=179637673]
+custom_minimum_size = Vector2(322.635, 43.37)
+layout_mode = 2
+theme = ExtResource("19_apby6")
+
+[node name="MusicFocus" type="Panel" parent="HUD/MP3Player/SelectionBG" unique_id=1318386766]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(322.635, 43.37)
+layout_mode = 2
+theme = ExtResource("19_apby6")
+
+[node name="SFXFocus" type="Panel" parent="HUD/MP3Player/SelectionBG" unique_id=641394478]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(322.635, 43.37)
+layout_mode = 2
+theme = ExtResource("19_apby6")
+
+[node name="MusicOptions" type="VBoxContainer" parent="HUD/MP3Player" unique_id=626376090]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 107.0
+offset_right = 477.0
+offset_bottom = 247.0
+scale = Vector2(0.96, 1)
+
+[node name="Master" type="HBoxContainer" parent="HUD/MP3Player/MusicOptions" unique_id=1322985890]
+layout_mode = 2
+alignment = 1
+
+[node name="Master" type="Label" parent="HUD/MP3Player/MusicOptions/Master" unique_id=920736179]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("19_apby6")
+text = "Master"
+vertical_alignment = 1
+
+[node name="HScrollBarMaster" type="ProgressBar" parent="HUD/MP3Player/MusicOptions/Master" unique_id=600429724]
+custom_minimum_size = Vector2(225, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Exit
-"
+size_flags_vertical = 1
+theme = ExtResource("19_apby6")
+min_value = -30.0
+max_value = 6.0
+step = 1.0
 
-[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="button_down" from="AspectRatioContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_button_down"]
+[node name="Music" type="HBoxContainer" parent="HUD/MP3Player/MusicOptions" unique_id=1207759422]
+layout_mode = 2
+alignment = 1
+
+[node name="Music" type="Label" parent="HUD/MP3Player/MusicOptions/Music" unique_id=684952502]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("19_apby6")
+text = "Music"
+vertical_alignment = 1
+
+[node name="HScrollBarMusic" type="ProgressBar" parent="HUD/MP3Player/MusicOptions/Music" unique_id=841497762]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme = ExtResource("19_apby6")
+min_value = -30.0
+max_value = 6.0
+step = 1.0
+
+[node name="SFX" type="HBoxContainer" parent="HUD/MP3Player/MusicOptions" unique_id=391343997]
+layout_mode = 2
+alignment = 1
+
+[node name="SFX" type="Label" parent="HUD/MP3Player/MusicOptions/SFX" unique_id=1165822729]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("19_apby6")
+text = "SFX"
+vertical_alignment = 1
+
+[node name="HScrollBarSFX" type="ProgressBar" parent="HUD/MP3Player/MusicOptions/SFX" unique_id=1393865969]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme = ExtResource("19_apby6")
+min_value = -30.0
+max_value = 6.0
+step = 1.0
+
+[node name="MP3Buttons" type="Control" parent="HUD/MP3Player" unique_id=1108101718]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonLeft" type="Button" parent="HUD/MP3Player/MP3Buttons" unique_id=1573015016]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 143.0
+offset_right = 573.0
+offset_bottom = 151.0
+scale = Vector2(7.095667, 8.694858)
+theme = ExtResource("19_apby6")
+
+[node name="ButtonUp" type="Button" parent="HUD/MP3Player/MP3Buttons" unique_id=737147028]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 99.0
+offset_right = 632.0
+offset_bottom = 107.0
+scale = Vector2(7.095667, 5.2548575)
+theme = ExtResource("19_apby6")
+
+[node name="ButtonRight" type="Button" parent="HUD/MP3Player/MP3Buttons" unique_id=337245686]
+layout_mode = 0
+offset_left = 684.0
+offset_top = 143.0
+offset_right = 692.0
+offset_bottom = 151.0
+scale = Vector2(7.095667, 8.694858)
+theme = ExtResource("19_apby6")
+
+[node name="ButtonDown" type="Button" parent="HUD/MP3Player/MP3Buttons" unique_id=1255577608]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 214.0
+offset_right = 632.0
+offset_bottom = 222.0
+scale = Vector2(7.095667, 5.2548575)
+theme = ExtResource("19_apby6")
+
+[node name="Sounds" type="Node2D" parent="HUD/MP3Player" unique_id=529226546]
+
+[node name="DigitalUp" type="AudioStreamPlayer2D" parent="HUD/MP3Player/Sounds" unique_id=1575326422]
+stream = ExtResource("20_p0yre")
+volume_db = -22.569
+pitch_scale = 1.02
+bus = &"SFX"
+
+[node name="DigitalRight" type="AudioStreamPlayer2D" parent="HUD/MP3Player/Sounds" unique_id=428699860]
+stream = ExtResource("21_ifccy")
+volume_db = -22.569
+pitch_scale = 1.02
+bus = &"SFX"
+
+[node name="DigitalDown" type="AudioStreamPlayer2D" parent="HUD/MP3Player/Sounds" unique_id=698016007]
+stream = ExtResource("22_many0")
+volume_db = -22.569
+pitch_scale = 1.02
+bus = &"SFX"
+
+[node name="DigitalLeft" type="AudioStreamPlayer2D" parent="HUD/MP3Player/Sounds" unique_id=760997307]
+stream = ExtResource("23_tjv02")
+volume_db = -22.569
+pitch_scale = 1.02
+bus = &"SFX"
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="HUD" unique_id=1097745272]
+stream = ExtResource("24_mreqc")
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD" unique_id=933781399]
+libraries/ = SubResource("AnimationLibrary_dds1n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2108880764]
+libraries/ = SubResource("AnimationLibrary_2v0rb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=603757633]
+stream = ExtResource("24_sdupg")
+volume_db = -6.71
+bus = &"Music"
+
+[connection signal="pressed" from="Menu/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/PowerOff" to="." method="_on_power_off_pressed"]
+[connection signal="pressed" from="HUD/Buttons/DownButton" to="." method="_on_down_button_pressed"]
+[connection signal="pressed" from="HUD/Buttons/UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="HUD/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="toggled" from="HUD/MP3Player/CheckButton" to="." method="_on_check_button_toggled"]
+[connection signal="value_changed" from="HUD/MP3Player/MusicOptions/Master/HScrollBarMaster" to="." method="_on_h_scroll_bar_master_value_changed"]
+[connection signal="value_changed" from="HUD/MP3Player/MusicOptions/Music/HScrollBarMusic" to="." method="_on_h_scroll_bar_music_value_changed"]
+[connection signal="value_changed" from="HUD/MP3Player/MusicOptions/SFX/HScrollBarSFX" to="." method="_on_h_scroll_bar_sfx_value_changed"]
+[connection signal="pressed" from="HUD/MP3Player/MP3Buttons/ButtonLeft" to="." method="_on_button_left_pressed"]
+[connection signal="pressed" from="HUD/MP3Player/MP3Buttons/ButtonUp" to="." method="_on_button_up_pressed"]
+[connection signal="pressed" from="HUD/MP3Player/MP3Buttons/ButtonRight" to="." method="_on_button_right_pressed"]
+[connection signal="pressed" from="HUD/MP3Player/MP3Buttons/ButtonDown" to="." method="_on_button_down_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+
+[editable path="ShaderScene"]
