@@ -193,6 +193,20 @@ theme = ExtResource("23_xwq8e")
 disabled = true
 text = "Power Off"
 
+[node name="WinLabel" type="Label" parent="Menu" unique_id=1015848060]
+visible = false
+layout_mode = 0
+offset_left = 724.0
+offset_top = 231.0
+offset_right = 1544.0
+offset_bottom = 471.0
+theme = ExtResource("23_xwq8e")
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.06191711, 0.29099154, 0.96120757, 0.6784314)
+theme_override_colors/font_outline_color = Color(0, 0.14968702, 0.7949819, 1)
+theme_override_font_sizes/font_size = 200
+text = "You Win!"
+
 [node name="AnimationParts" type="Control" parent="Menu" unique_id=749670051]
 anchors_preset = 0
 offset_top = 73.0
@@ -222,20 +236,6 @@ offset_right = 40.0
 offset_bottom = 1167.0
 scale = Vector2(57.520004, 28.999998)
 color = Color(0, 0, 0, 1)
-
-[node name="WinLabel" type="Label" parent="Menu" unique_id=1015848060]
-visible = false
-layout_mode = 0
-offset_left = 724.0
-offset_top = 231.0
-offset_right = 1544.0
-offset_bottom = 471.0
-theme = ExtResource("23_xwq8e")
-theme_override_colors/font_color = Color(1, 1, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.06191711, 0.29099154, 0.96120757, 0.6784314)
-theme_override_colors/font_outline_color = Color(0, 0.14968702, 0.7949819, 1)
-theme_override_font_sizes/font_size = 200
-text = "You Win!"
 
 [node name="ShaderScene" parent="." unique_id=295264481 instance=ExtResource("2_72sra")]
 
