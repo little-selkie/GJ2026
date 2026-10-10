@@ -21,6 +21,7 @@ func _draw() -> void:
 		$Menu/VBoxContainer/Start.text = "Restart"
 		$VictorySound.play()
 		$Menu/WinLabel.visible = true
+		GlobalVars.current_level = 1
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -151,8 +152,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		get_tree().quit()
 	elif anim_name == "fade_to_level":
 		GlobalVars.win = 0
-		var level = "res://Scenes/MAIN.tscn"
-		get_tree().change_scene_to_file(level)
+		if GlobalVars.current_level == 1:
+			var level = "res://Scenes/PlayableLevels/Playable_1.tscn"
+			get_tree().change_scene_to_file(level)
 
 
 func _on_ambience_finished() -> void:

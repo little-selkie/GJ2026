@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://1wpobish08fb"]
+
+[ext_resource type="PackedScene" uid="uid://chaj24gl6w362" path="res://Scenes/MAIN.tscn" id="1_sjsyc"]
+
+[node name="Playable3" type="Node2D" unique_id=2140151009]
+
+[node name="MAIN" parent="." unique_id=1001715188 instance=ExtResource("1_sjsyc")]
+
+[editable path="MAIN"]
+[editable path="MAIN/ShaderScene"]
+[editable path="MAIN/HUD"]
+[editable path="MAIN/Level_1"]
+[editable path="MAIN/Level_1/BgGrid"]
+[editable path="MAIN/Level_1/MainCharacter"]
