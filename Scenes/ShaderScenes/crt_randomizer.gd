@@ -134,7 +134,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		if glitch_timer != null:
 			glitch_timer.stop()
 		
-	_trigger_glitch()
+		_trigger_glitch()
 
 
 # ------------------------------------------------------------
