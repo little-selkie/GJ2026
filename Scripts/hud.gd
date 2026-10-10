@@ -14,7 +14,7 @@ func _ready() -> void:
 	$MP3Player/MusicOptions/Music/HScrollBarMusic.value = AudioServer.get_bus_volume_db(music_index)
 	$MP3Player/MusicOptions/SFX/HScrollBarSFX.value = AudioServer.get_bus_volume_db(sfx_index)
 	current_focus = current_focus_vars[0]
-	pass
+	$NotepadSounds.get_child(rng.randi_range(10, 13)).play()
 
 func _process(_delta: float) -> void:
 	$Notepad/Score/Number.text = str(GlobalVars.coins)

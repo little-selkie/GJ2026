@@ -34,6 +34,10 @@
 [ext_resource type="AudioStream" uid="uid://13siutmqibwq" path="res://Audio/Notepad/EraseArrow/ArrowErase04.wav" id="31_q4d15"]
 [ext_resource type="AudioStream" uid="uid://cgxqsyy3kp16e" path="res://Audio/Notepad/EraseArrow/ArrowErase05.wav" id="32_pyhjf"]
 [ext_resource type="AudioStream" uid="uid://bmf1rdykv355g" path="res://Audio/Notepad/EraseArrow/ArrowErase06.wav" id="33_t7fi5"]
+[ext_resource type="AudioStream" uid="uid://7iblmso0evyq" path="res://Audio/SFX/TurningPaperPage/PaperPage01.wav" id="35_ralih"]
+[ext_resource type="AudioStream" uid="uid://doo4xet70ehwe" path="res://Audio/SFX/TurningPaperPage/PaperPage02.wav" id="36_p5q14"]
+[ext_resource type="AudioStream" uid="uid://cfh40y285flu3" path="res://Audio/SFX/TurningPaperPage/PaperPage03.wav" id="37_q4d15"]
+[ext_resource type="AudioStream" uid="uid://c56vd2c17kvcw" path="res://Audio/SFX/TurningPaperPage/PaperPage04.wav" id="38_pyhjf"]
 
 [sub_resource type="Animation" id="Animation_jbjhr"]
 resource_name = "MP3move"
@@ -541,6 +545,26 @@ bus = &"SFX"
 
 [node name="ArrowErase06" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=951405721]
 stream = ExtResource("33_t7fi5")
+bus = &"SFX"
+
+[node name="PaperPage01" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=1699514388]
+stream = ExtResource("35_ralih")
+volume_db = -9.686
+bus = &"SFX"
+
+[node name="PaperPage02" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=294115938]
+stream = ExtResource("36_p5q14")
+volume_db = -9.686
+bus = &"SFX"
+
+[node name="PaperPage03" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=896499139]
+stream = ExtResource("37_q4d15")
+volume_db = -9.686
+bus = &"SFX"
+
+[node name="PaperPage04" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=536421457]
+stream = ExtResource("38_pyhjf")
+volume_db = -9.686
 bus = &"SFX"
 
 [connection signal="pressed" from="Notepad/DeleteButton" to="." method="_on_delete_button_pressed"]
