@@ -10,11 +10,11 @@ config_version=5
 
 [application]
 
-config/name="GJ2026"
-config/version="0.0.1"
+config/name="The Legend Of Super ChelMan"
+config/version="1.0.0"
 run/main_scene="uid://cvkiee62sx8wk"
 config/features=PackedStringArray("4.7", "GL Compatibility")
-config/icon="res://Images/TestImages/icon.svg"
+config/icon="uid://47ssdiubpu4w"
 
 [audio]
 
