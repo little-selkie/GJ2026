@@ -21,6 +21,7 @@ func _process(_delta: float) -> void:
 	$Notepad/Tries/Number.text = str(GlobalVars.total_attempts)
 
 func add_move(direction) -> void:
+	play_rundom_notepad(1)
 	add_move_ui(direction)
 	GlobalVars.move_array.append(direction)
 
@@ -36,6 +37,7 @@ func add_move_ui(direction) -> void:
 	new_child.add_child(new_image)
 
 func _on_clear_button_pressed() -> void:
+	play_rundom_notepad(0)
 	GlobalVars.move_step = 0
 	GlobalVars.move_array.clear()
 	for n in $ScrollContainer/Commands.get_children():
@@ -75,6 +77,7 @@ func _on_delete_button_pressed() -> void:
 	if $ScrollContainer/Commands.get_child_count() != 0:
 		$ScrollContainer/Commands.get_child($ScrollContainer/Commands.get_child_count()-1).queue_free()
 		GlobalVars.move_array.remove_at(GlobalVars.move_array.size()-1)
+		play_rundom_notepad(0)
 
 
 func _on_stop_buttom_pressed() -> void:
@@ -100,6 +103,7 @@ func _on_start_button_pressed() -> void:
 		enemies.get_child(x).find_child("StepTimer").start()
 
 func all_steps_finished() -> void: 
+	play_rundom_notepad(0)
 	for n in $ScrollContainer/Commands.get_children():
 		$ScrollContainer/Commands.remove_child(n)
 	$Buttons/UpButton.disabled = false
@@ -195,3 +199,9 @@ func _on_h_scroll_bar_sfx_value_changed(value: float) -> void:
 	else:
 		AudioServer.set_bus_mute(sfx_index, false)
 		AudioServer.set_bus_volume_db(sfx_index, value)
+
+func play_rundom_notepad(value: bool) -> void:
+	if value:
+		$NotepadSounds.get_child(rng.randi_range(0, 3)).play()
+	else:
+		$NotepadSounds.get_child(rng.randi_range(4, 9)).play()

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b3noqvoryuw5u"
-path="res://.godot/imported/ArrowDraw02.wav-38b0deaf5a6db5f2927fd861fa689cc2.sample"
+path="res://.godot/imported/ArrowDraw02.wav-d735e5beea37260c556a499444dc14fa.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/ArrowDraw/ArrowDraw02.wav"
-dest_files=["res://.godot/imported/ArrowDraw02.wav-38b0deaf5a6db5f2927fd861fa689cc2.sample"]
+source_file="res://Audio/Notepad/ArrowDraw/ArrowDraw02.wav"
+dest_files=["res://.godot/imported/ArrowDraw02.wav-d735e5beea37260c556a499444dc14fa.sample"]
 
 [params]
 

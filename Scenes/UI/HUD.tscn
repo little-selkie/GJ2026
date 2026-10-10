@@ -23,6 +23,16 @@
 [ext_resource type="AudioStream" uid="uid://cspfjychyvwwr" path="res://Audio/SFX/DigitalButtonPressRight.mp3" id="19_khvou"]
 [ext_resource type="AudioStream" uid="uid://blmbx5y7fcsk8" path="res://Audio/SFX/DigitalButtonPressDown.mp3" id="20_55bpt"]
 [ext_resource type="AudioStream" uid="uid://c45d3m0unwwi5" path="res://Audio/SFX/DigitalButtonPressLeft.mp3" id="21_yd1yt"]
+[ext_resource type="AudioStream" uid="uid://bsiq3mox0h6xb" path="res://Audio/Notepad/ArrowDraw/ArrowDraw01.wav" id="24_eedsi"]
+[ext_resource type="AudioStream" uid="uid://b3noqvoryuw5u" path="res://Audio/Notepad/ArrowDraw/ArrowDraw02.wav" id="25_u1rxn"]
+[ext_resource type="AudioStream" uid="uid://c1y32j8u0ft1w" path="res://Audio/Notepad/ArrowDraw/ArrowDraw03.wav" id="26_wjwn1"]
+[ext_resource type="AudioStream" uid="uid://bb2sj8x146qbj" path="res://Audio/Notepad/ArrowDraw/ArrowDraw04.wav" id="27_lyj15"]
+[ext_resource type="AudioStream" uid="uid://df3ujtlm0ejp2" path="res://Audio/Notepad/EraseArrow/ArrowErase01.wav" id="28_l2igo"]
+[ext_resource type="AudioStream" uid="uid://07y15nbkx4li" path="res://Audio/Notepad/EraseArrow/ArrowErase02.wav" id="29_ralih"]
+[ext_resource type="AudioStream" uid="uid://cpdfg32k6jqpu" path="res://Audio/Notepad/EraseArrow/ArrowErase03.wav" id="30_p5q14"]
+[ext_resource type="AudioStream" uid="uid://13siutmqibwq" path="res://Audio/Notepad/EraseArrow/ArrowErase04.wav" id="31_q4d15"]
+[ext_resource type="AudioStream" uid="uid://cgxqsyy3kp16e" path="res://Audio/Notepad/EraseArrow/ArrowErase05.wav" id="32_pyhjf"]
+[ext_resource type="AudioStream" uid="uid://bmf1rdykv355g" path="res://Audio/Notepad/EraseArrow/ArrowErase06.wav" id="33_t7fi5"]
 
 [sub_resource type="Animation" id="Animation_jbjhr"]
 resource_name = "MP3move"
@@ -478,6 +488,48 @@ bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=933781399]
 libraries/ = SubResource("AnimationLibrary_dds1n")
+
+[node name="NotepadSounds" type="Node2D" parent="." unique_id=1629470215]
+
+[node name="ArrowDraw01" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=2069222239]
+stream = ExtResource("24_eedsi")
+bus = &"SFX"
+
+[node name="ArrowDraw02" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=520575894]
+stream = ExtResource("25_u1rxn")
+bus = &"SFX"
+
+[node name="ArrowDraw03" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=1178449174]
+stream = ExtResource("26_wjwn1")
+bus = &"SFX"
+
+[node name="ArrowDraw04" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=1670844715]
+stream = ExtResource("27_lyj15")
+bus = &"SFX"
+
+[node name="ArrowErase01" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=1106639431]
+stream = ExtResource("28_l2igo")
+bus = &"SFX"
+
+[node name="ArrowErase02" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=501922022]
+stream = ExtResource("29_ralih")
+bus = &"SFX"
+
+[node name="ArrowErase03" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=1327625969]
+stream = ExtResource("30_p5q14")
+bus = &"SFX"
+
+[node name="ArrowErase04" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=1975184224]
+stream = ExtResource("31_q4d15")
+bus = &"SFX"
+
+[node name="ArrowErase05" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=532833025]
+stream = ExtResource("32_pyhjf")
+bus = &"SFX"
+
+[node name="ArrowErase06" type="AudioStreamPlayer2D" parent="NotepadSounds" unique_id=951405721]
+stream = ExtResource("33_t7fi5")
+bus = &"SFX"
 
 [connection signal="pressed" from="Notepad/DeleteButton" to="." method="_on_delete_button_pressed"]
 [connection signal="pressed" from="Notepad/ClearButton" to="." method="_on_clear_button_pressed"]

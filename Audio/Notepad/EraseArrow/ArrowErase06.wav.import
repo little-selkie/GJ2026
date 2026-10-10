@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bmf1rdykv355g"
-path="res://.godot/imported/ArrowErase06.wav-5d950152b4dc09ac50f15f3ea306fd21.sample"
+path="res://.godot/imported/ArrowErase06.wav-08fa415a0205488b1e8b2a39625f8adb.sample"
 
 [deps]
 
-source_file="res://Audio/SFX/EraseArrow/ArrowErase06.wav"
-dest_files=["res://.godot/imported/ArrowErase06.wav-5d950152b4dc09ac50f15f3ea306fd21.sample"]
+source_file="res://Audio/Notepad/EraseArrow/ArrowErase06.wav"
+dest_files=["res://.godot/imported/ArrowErase06.wav-08fa415a0205488b1e8b2a39625f8adb.sample"]
 
 [params]
 
