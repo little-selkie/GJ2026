@@ -87,7 +87,6 @@ horizontal_alignment = 1
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1720888463]
-visible = false
 shape = SubResource("RectangleShape2D_xrivr")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1642943532]
