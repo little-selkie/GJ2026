@@ -10,4 +10,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if GlobalVars.coins >= coin_cost:
 		GlobalVars.coins = 0
 		Grid.open_the_door()
-		queue_free()
+		$Sprite2D.visible = false
+		$Area2D.visible = false
+		$AudioStreamPlayer2D.play()
+
+
+func _on_audio_stream_player_2d_finished() -> void:
+	queue_free()
