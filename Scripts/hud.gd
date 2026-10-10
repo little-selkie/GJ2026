@@ -119,6 +119,7 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_button_up_pressed() -> void:
+	$MP3Player/Sounds/DigitalUp.play()
 	if current_focus == str(current_focus_vars[0]):
 		current_focus = current_focus_vars[2]
 		$MP3Player/SelectionBG/MasterFocus.self_modulate = Color(0.0, 0.0, 0.0, 0.0)
@@ -133,6 +134,7 @@ func _on_button_up_pressed() -> void:
 		$MP3Player/SelectionBG/MusicFocus.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func _on_button_down_pressed() -> void:
+	$MP3Player/Sounds/DigitalDown.play()
 	if current_focus == str(current_focus_vars[0]):
 		current_focus = current_focus_vars[1]
 		$MP3Player/SelectionBG/MasterFocus.self_modulate = Color(0.0, 0.0, 0.0, 0.0)
@@ -149,6 +151,7 @@ func _on_button_down_pressed() -> void:
 
 
 func _on_button_left_pressed() -> void:
+	$MP3Player/Sounds/DigitalLeft.play()
 	if current_focus == str(current_focus_vars[0]):
 		$MP3Player/MusicOptions/Master/HScrollBarMaster.value -= $MP3Player/MusicOptions/Master/HScrollBarMaster.step
 	elif current_focus == str(current_focus_vars[1]):
@@ -158,6 +161,7 @@ func _on_button_left_pressed() -> void:
 
 
 func _on_button_right_pressed() -> void:
+	$MP3Player/Sounds/DigitalRight.play()
 	if current_focus == str(current_focus_vars[0]):
 		$MP3Player/MusicOptions/Master/HScrollBarMaster.value += $MP3Player/MusicOptions/Master/HScrollBarMaster.step
 	elif current_focus == str(current_focus_vars[1]):

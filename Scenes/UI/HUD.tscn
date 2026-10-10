@@ -18,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://c0xiy76a2h64x" path="res://Images/Props/play_button_pressed.png" id="15_jbjhr"]
 [ext_resource type="Texture2D" uid="uid://3qwshxtqaxim" path="res://Images/Props/mp3_player.png" id="16_jbjhr"]
 [ext_resource type="Theme" uid="uid://dpuidr0xvg03e" path="res://Scenes/UI/MP3Player_theme.tres" id="17_b3vmo"]
+[ext_resource type="AudioStream" uid="uid://cnywt7rh7n85w" path="res://Audio/SFX/DigitalButtonPressUp.mp3" id="18_dds1n"]
+[ext_resource type="AudioStream" uid="uid://cspfjychyvwwr" path="res://Audio/SFX/DigitalButtonPressRight.mp3" id="19_khvou"]
+[ext_resource type="AudioStream" uid="uid://blmbx5y7fcsk8" path="res://Audio/SFX/DigitalButtonPressDown.mp3" id="20_55bpt"]
+[ext_resource type="AudioStream" uid="uid://c45d3m0unwwi5" path="res://Audio/SFX/DigitalButtonPressLeft.mp3" id="21_yd1yt"]
 
 [sub_resource type="Animation" id="Animation_jbjhr"]
 resource_name = "MP3move"
@@ -389,6 +393,32 @@ offset_right = 632.0
 offset_bottom = 222.0
 scale = Vector2(7.095667, 5.2548575)
 theme = ExtResource("17_b3vmo")
+
+[node name="Sounds" type="Node2D" parent="MP3Player" unique_id=529226546]
+
+[node name="DigitalUp" type="AudioStreamPlayer2D" parent="MP3Player/Sounds" unique_id=1575326422]
+stream = ExtResource("18_dds1n")
+volume_db = -22.569
+pitch_scale = 1.02
+bus = &"SFX"
+
+[node name="DigitalRight" type="AudioStreamPlayer2D" parent="MP3Player/Sounds" unique_id=428699860]
+stream = ExtResource("19_khvou")
+volume_db = -22.569
+pitch_scale = 1.02
+bus = &"SFX"
+
+[node name="DigitalDown" type="AudioStreamPlayer2D" parent="MP3Player/Sounds" unique_id=698016007]
+stream = ExtResource("20_55bpt")
+volume_db = -22.569
+pitch_scale = 1.02
+bus = &"SFX"
+
+[node name="DigitalLeft" type="AudioStreamPlayer2D" parent="MP3Player/Sounds" unique_id=760997307]
+stream = ExtResource("21_yd1yt")
+volume_db = -22.569
+pitch_scale = 1.02
+bus = &"SFX"
 
 [node name="ButtonClick" type="AudioStreamPlayer2D" parent="." unique_id=1097745272]
 stream = ExtResource("12_eebq5")
