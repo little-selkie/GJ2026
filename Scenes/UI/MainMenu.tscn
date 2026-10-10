@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d0phmohsd8g0h" path="res://Images/Buttons/restart_button.png" id="14_y51v7"]
 [ext_resource type="Texture2D" uid="uid://nygp8s60urlo" path="res://Images/Buttons/restart_button_pressed.png" id="15_n4yjw"]
 [ext_resource type="Texture2D" uid="uid://duup7kap7kf2v" path="res://Images/Props/play_button.png" id="16_dwcil"]
+[ext_resource type="Texture2D" uid="uid://baorwayuxcdow" path="res://Images/Props/press_me.png" id="17_4b2gn"]
 [ext_resource type="Texture2D" uid="uid://c0xiy76a2h64x" path="res://Images/Props/play_button_pressed.png" id="17_kggn2"]
 [ext_resource type="Texture2D" uid="uid://dvmiu0meqxo3r" path="res://Images/Props/kick_me.png" id="17_sqe33"]
 [ext_resource type="Texture2D" uid="uid://3qwshxtqaxim" path="res://Images/Props/mp3_player.png" id="18_hreik"]
@@ -344,6 +345,24 @@ texture_hover = ExtResource("16_dwcil")
 texture_disabled = ExtResource("17_kggn2")
 texture_focused = ExtResource("16_dwcil")
 
+[node name="TextureRect2" type="TextureRect" parent="HUD" unique_id=1127960194]
+offset_left = 617.0
+offset_top = 1119.0
+offset_right = 946.0
+offset_bottom = 1280.0
+texture = ExtResource("17_4b2gn")
+
+[node name="GlitchPunchButton" type="TextureButton" parent="HUD" unique_id=1134804923]
+offset_left = 4.0
+offset_top = -5.0
+offset_right = 318.0
+offset_bottom = 349.0
+texture_normal = ExtResource("17_sqe33")
+texture_pressed = ExtResource("17_sqe33")
+texture_hover = ExtResource("17_sqe33")
+texture_disabled = ExtResource("17_sqe33")
+texture_focused = ExtResource("17_sqe33")
+
 [node name="MP3Player" type="Control" parent="HUD" unique_id=1448928596]
 layout_mode = 3
 anchors_preset = 0
@@ -351,18 +370,6 @@ offset_left = 69.0
 offset_top = 1224.0
 offset_right = 109.0
 offset_bottom = 1263.9998
-
-[node name="GlitchPunchButton" type="TextureButton" parent="HUD/MP3Player" unique_id=1134804923]
-layout_mode = 0
-offset_left = -65.0
-offset_top = -1229.0
-offset_right = 249.0
-offset_bottom = -875.0
-texture_normal = ExtResource("17_sqe33")
-texture_pressed = ExtResource("17_sqe33")
-texture_hover = ExtResource("17_sqe33")
-texture_disabled = ExtResource("17_sqe33")
-texture_focused = ExtResource("17_sqe33")
 
 [node name="ColorRect" type="ColorRect" parent="HUD/MP3Player" unique_id=1088833368]
 layout_mode = 0

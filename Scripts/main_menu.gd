@@ -18,6 +18,7 @@ func _draw() -> void:
 	if GlobalVars.win != true:
 		pass
 	else:
+		$HUD/TextureRect2.visible = false
 		$Menu/VBoxContainer/Start.text = "Restart"
 		$VictorySound.play()
 		$Menu/WinLabel.visible = true
