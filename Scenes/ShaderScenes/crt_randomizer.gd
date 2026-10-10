@@ -311,6 +311,10 @@ func _trigger_glitch() -> void:
 # ------------------------------------------------------------
 
 func _on_reset_button_pressed() -> void:
+	
+	if glitch_audio_player != null:
+		glitch_audio_player.stop()
+	
 	# Reset default settings
 	_apply_default_settings()
 
