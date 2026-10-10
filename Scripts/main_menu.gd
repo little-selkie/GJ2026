@@ -155,6 +155,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		GlobalVars.coins = 0
 		GlobalVars.move_array.clear()
 		GlobalVars.win = 0
+		GlobalVars.total_attempts = 5
 		if GlobalVars.current_level == 1:
 			var level = "res://Scenes/PlayableLevels/Playable_1.tscn"
 			get_tree().change_scene_to_file(level)
