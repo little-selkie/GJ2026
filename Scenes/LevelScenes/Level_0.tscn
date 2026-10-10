@@ -23,13 +23,13 @@ Grid = NodePath("../BgGrid")
 position = Vector2(289.99997, 609)
 scale = Vector2(0.47999907, 0.47999907)
 Grid = NodePath("../../BgGrid")
-movement_pattern = Array[int]([1, 1, 2, 2, 2, 4, 4, 1, 1, 8, 8, 8, 1, 8, 1, 8, 8, 4, 4, 4, 2, 8, 2, 4, 4, 8, 2, 4, 2, 2, 2, 8, 2, 2, 1, 1, 4, 4, 2, 2, 4, 4, 4, 8, 8, 4, 1, 8, 1, 4, 1, 1, 1, 8, 8, 4, 4, 8, 8, 4, 4, 2, 2, 1])
+movement_pattern = Array[int]([1, 1, 2, 2, 2, 4, 4, 1, 1, 8, 8, 8, 1, 8, 1, 8, 8, 4, 4, 4, 2, 8, 2, 4, 4, 8, 2, 4, 2, 2, 2, 2, 1, 1, 4, 4, 2, 2, 4, 4, 4, 8, 8, 4, 1, 8, 1, 1, 1, 8, 8, 4, 4, 8, 8, 4, 4, 2, 2, 1])
 
 [node name="Enemy2" parent="Enemies" unique_id=1961336437 node_paths=PackedStringArray("Grid") instance=ExtResource("3_3xfmh")]
 position = Vector2(1185, 480)
 scale = Vector2(0.5, 0.5)
 Grid = NodePath("../../BgGrid")
-movement_pattern = Array[int]([8, 8, 1, 1, 2, 2, 8, 8, 2, 2, 1, 2, 2, 2, 4, 4, 8, 4, 4, 4, 8, 8, 4, 4, 2, 2, 8, 2, 2, 4, 4, 2, 2, 4, 4, 8, 8, 1, 1, 1, 1, 2, 1, 1, 4, 2, 8, 1, 1, 2, 1, 1, 1, 8, 8, 4, 1, 1, 1, 1, 1, 2, 2, 4, 4, 8, 8, 4, 8, 8])
+movement_pattern = Array[int]([8, 8, 1, 1, 2, 2, 8, 8, 2, 2, 1, 2, 2, 2, 4, 4, 8, 4, 4, 4, 8, 8, 4, 4, 2, 2, 2, 4, 4, 2, 2, 4, 4, 8, 8, 1, 1, 1, 1, 2, 1, 1, 4, 2, 8, 1, 1, 2, 1, 1, 1, 8, 8, 4, 1, 1, 1, 1, 1, 2, 2, 4, 4, 8])
 
 [node name="Enemy3" parent="Enemies" unique_id=1755986030 node_paths=PackedStringArray("Grid") instance=ExtResource("3_3xfmh")]
 position = Vector2(672, 224)
@@ -47,7 +47,7 @@ movement_pattern = Array[int]([8, 1, 8, 8, 4, 8, 8, 8, 8, 1, 1, 2, 1, 2, 2, 2, 2
 
 [node name="Key" parent="Key" unique_id=957518585 node_paths=PackedStringArray("Grid") instance=ExtResource("4_3xfmh")]
 position = Vector2(417, 996)
-coin_cost = 50
+coin_cost = 30
 Grid = NodePath("../../BgGrid")
 
 [editable path="BgGrid"]
