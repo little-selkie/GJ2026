@@ -105,6 +105,7 @@ func _on_start_pressed() -> void:
 
 func _on_power_off_pressed() -> void:
 	$AnimationPlayer.play("fade")
+	$TurnOff.play()
 
 
 func _on_down_button_pressed() -> void:
@@ -144,3 +145,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	elif anim_name == "fade_to_level":
 		var level = "res://Scenes/MAIN.tscn"
 		get_tree().change_scene_to_file(level)
+
+
+func _on_ambience_finished() -> void:
+	$Ambience.play()
