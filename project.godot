@@ -14,7 +14,9 @@ config/name="The Legend Of Super ChelMan"
 config/version="1.0.0"
 run/main_scene="uid://cvkiee62sx8wk"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/image="uid://ba6rohuafxyfc"
 config/icon="uid://47ssdiubpu4w"
+boot_splash/minimum_display_time=4000
 
 [audio]
 
