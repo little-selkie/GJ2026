@@ -24,6 +24,8 @@
 [ext_resource type="Theme" uid="uid://bnylknj7s7k7r" path="res://Scenes/UI/arcade_theme.tres" id="23_xwq8e"]
 [ext_resource type="AudioStream" uid="uid://bimojclxqyycc" path="res://Audio/SFX/PhysicalButtonPress.mp3" id="24_mreqc"]
 [ext_resource type="AudioStream" uid="uid://cf1h804upxp23" path="res://Audio/Music/level start.mp3" id="24_sdupg"]
+[ext_resource type="AudioStream" uid="uid://bt7fkorgc8144" path="res://Audio/SFX/Arcade Ambience/ArcadeAmbience.wav" id="25_2v0rb"]
+[ext_resource type="AudioStream" uid="uid://c8b6mw0ed0rky" path="res://Audio/SFX/ArcadeOff.mp3" id="26_ecrs6"]
 
 [sub_resource type="Animation" id="Animation_jbjhr"]
 resource_name = "MP3move"
@@ -532,6 +534,16 @@ stream = ExtResource("24_sdupg")
 volume_db = -6.71
 bus = &"Music"
 
+[node name="Ambience" type="AudioStreamPlayer2D" parent="." unique_id=1084005355]
+stream = ExtResource("25_2v0rb")
+autoplay = true
+bus = &"Music"
+
+[node name="TurnOff" type="AudioStreamPlayer2D" parent="." unique_id=727601213]
+stream = ExtResource("26_ecrs6")
+volume_db = -5.098
+bus = &"SFX"
+
 [connection signal="pressed" from="Menu/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/PowerOff" to="." method="_on_power_off_pressed"]
 [connection signal="pressed" from="HUD/Buttons/DownButton" to="." method="_on_down_button_pressed"]
@@ -546,5 +558,6 @@ bus = &"Music"
 [connection signal="pressed" from="HUD/MP3Player/MP3Buttons/ButtonRight" to="." method="_on_button_right_pressed"]
 [connection signal="pressed" from="HUD/MP3Player/MP3Buttons/ButtonDown" to="." method="_on_button_down_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="Ambience" to="." method="_on_ambience_finished"]
 
 [editable path="ShaderScene"]

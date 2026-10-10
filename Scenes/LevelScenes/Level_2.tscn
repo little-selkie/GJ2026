@@ -25,7 +25,7 @@ Grid = NodePath("../BgGrid")
 position = Vector2(993, 417)
 scale = Vector2(0.5, 0.5)
 Grid = NodePath("../../BgGrid")
-movement_pattern = Array[int]([1, 2, 1, 1, 8, 8, 8, 8, 8, 8, 4, 4, 4, 2, 2, 2, 4, 4, 2, 2, 1, 1, 2, 2, 2])
+movement_pattern = Array[int]([2, 2, 2, 4, 4, 8, 2, 1, 1, 1, 1, 1, 8, 8, 8, 8, 8, 8, 4, 4, 4, 2, 4, 4, 1, 1, 8, 8, 8])
 
 [node name="Key" type="Node2D" parent="." unique_id=1196055022]
 
