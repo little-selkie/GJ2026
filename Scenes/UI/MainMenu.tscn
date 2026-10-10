@@ -602,6 +602,7 @@ bus = &"SFX"
 [connection signal="pressed" from="HUD/Buttons/DownButton" to="." method="_on_down_button_pressed"]
 [connection signal="pressed" from="HUD/Buttons/UpButton" to="." method="_on_up_button_pressed"]
 [connection signal="pressed" from="HUD/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="HUD/GlitchPunchButton" to="ShaderScene/CRT_Filter" method="_on_reset_button_pressed"]
 [connection signal="toggled" from="HUD/MP3Player/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="value_changed" from="HUD/MP3Player/MusicOptions/Master/HScrollBarMaster" to="." method="_on_h_scroll_bar_master_value_changed"]
 [connection signal="value_changed" from="HUD/MP3Player/MusicOptions/Music/HScrollBarMusic" to="." method="_on_h_scroll_bar_music_value_changed"]
