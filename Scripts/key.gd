@@ -3,8 +3,12 @@ extends Node2D
 @export var coin_cost: int = 5
 @export var Grid: Node2D
 
+func _process(_delta: float) -> void:
+	if GlobalVars.coins >= coin_cost:
+		$Sprite2D/Label.self_modulate = Color(0, 1.0, 0, 1.0)
+
 func _ready() -> void:
-	$Label.text = str(coin_cost)
+	$Sprite2D/Label.text = str(coin_cost)
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if GlobalVars.coins >= coin_cost:
