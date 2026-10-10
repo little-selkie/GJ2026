@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://nygp8s60urlo" path="res://Images/Buttons/restart_button_pressed.png" id="15_n4yjw"]
 [ext_resource type="Texture2D" uid="uid://duup7kap7kf2v" path="res://Images/Props/play_button.png" id="16_dwcil"]
 [ext_resource type="Texture2D" uid="uid://c0xiy76a2h64x" path="res://Images/Props/play_button_pressed.png" id="17_kggn2"]
+[ext_resource type="Texture2D" uid="uid://dvmiu0meqxo3r" path="res://Images/Props/kick_me.png" id="17_sqe33"]
 [ext_resource type="Texture2D" uid="uid://3qwshxtqaxim" path="res://Images/Props/mp3_player.png" id="18_hreik"]
 [ext_resource type="Theme" uid="uid://dpuidr0xvg03e" path="res://Scenes/UI/MP3Player_theme.tres" id="19_apby6"]
 [ext_resource type="AudioStream" uid="uid://cnywt7rh7n85w" path="res://Audio/SFX/DigitalButtonPressUp.mp3" id="20_p0yre"]
@@ -26,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://cf1h804upxp23" path="res://Audio/Music/level start.mp3" id="24_sdupg"]
 [ext_resource type="AudioStream" uid="uid://bt7fkorgc8144" path="res://Audio/SFX/Arcade Ambience/ArcadeAmbience.wav" id="25_2v0rb"]
 [ext_resource type="AudioStream" uid="uid://c8b6mw0ed0rky" path="res://Audio/SFX/ArcadeOff.mp3" id="26_ecrs6"]
+[ext_resource type="AudioStream" uid="uid://ch0nnd3u7q4jt" path="res://Audio/SFX/WinJingle.mp3" id="28_p7t0b"]
 
 [sub_resource type="Animation" id="Animation_jbjhr"]
 resource_name = "MP3move"
@@ -175,9 +177,9 @@ color = Color(3.008172e-09, 3.008172e-09, 0.12764448, 1)
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1481566013]
 layout_mode = 0
 offset_left = 815.0
-offset_top = 436.0
+offset_top = 509.0
 offset_right = 1476.0
-offset_bottom = 766.0
+offset_bottom = 839.0
 
 [node name="Start" type="Button" parent="Menu/VBoxContainer" unique_id=951688179]
 layout_mode = 2
@@ -192,8 +194,9 @@ text = "Power Off"
 
 [node name="AnimationParts" type="Control" parent="Menu" unique_id=749670051]
 anchors_preset = 0
+offset_top = 73.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 113.0
 
 [node name="Whole" type="ColorRect" parent="Menu/AnimationParts" unique_id=810209240]
 layout_mode = 0
@@ -218,6 +221,20 @@ offset_right = 40.0
 offset_bottom = 1167.0
 scale = Vector2(57.520004, 28.999998)
 color = Color(0, 0, 0, 1)
+
+[node name="WinLabel" type="Label" parent="Menu" unique_id=1015848060]
+visible = false
+layout_mode = 0
+offset_left = 724.0
+offset_top = 231.0
+offset_right = 1544.0
+offset_bottom = 471.0
+theme = ExtResource("23_xwq8e")
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.06191711, 0.29099154, 0.96120757, 0.6784314)
+theme_override_colors/font_outline_color = Color(0, 0.14968702, 0.7949819, 1)
+theme_override_font_sizes/font_size = 200
+text = "You Win!"
 
 [node name="ShaderScene" parent="." unique_id=295264481 instance=ExtResource("2_72sra")]
 
@@ -334,6 +351,18 @@ offset_left = 69.0
 offset_top = 1224.0
 offset_right = 109.0
 offset_bottom = 1263.9998
+
+[node name="GlitchPunchButton" type="TextureButton" parent="HUD/MP3Player" unique_id=1134804923]
+layout_mode = 0
+offset_left = -65.0
+offset_top = -1229.0
+offset_right = 249.0
+offset_bottom = -875.0
+texture_normal = ExtResource("17_sqe33")
+texture_pressed = ExtResource("17_sqe33")
+texture_hover = ExtResource("17_sqe33")
+texture_disabled = ExtResource("17_sqe33")
+texture_focused = ExtResource("17_sqe33")
 
 [node name="ColorRect" type="ColorRect" parent="HUD/MP3Player" unique_id=1088833368]
 layout_mode = 0
@@ -543,6 +572,11 @@ bus = &"Music"
 stream = ExtResource("26_ecrs6")
 volume_db = -5.098
 bus = &"SFX"
+
+[node name="VictorySound" type="AudioStreamPlayer2D" parent="." unique_id=1671124927]
+stream = ExtResource("28_p7t0b")
+volume_db = -15.294
+bus = &"Music"
 
 [connection signal="pressed" from="Menu/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/PowerOff" to="." method="_on_power_off_pressed"]
