@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://br0xckgineo57" path="res://Images/Props/Lock.png" id="1_3n83d"]
 [ext_resource type="Texture2D" uid="uid://27astauv5cla" path="res://Images/Props/Box64х64.png" id="1_u5i6v"]
 [ext_resource type="PackedScene" uid="uid://pvywmvtsha7y" path="res://Scenes/Misc/VictoryZone.tscn" id="2_dl48k"]
+[ext_resource type="Texture2D" uid="uid://dd3qfuficri1t" path="res://Images/Arrows/Down2.PNG" id="2_gqvky"]
 [ext_resource type="Texture2D" uid="uid://cc20pelp1df5" path="res://Images/Textures/LightCircle.png" id="3_h15ft"]
 
 [sub_resource type="Animation" id="Animation_u5i6v"]
@@ -47,17 +48,44 @@ _data = {
 
 [node name="DoorOpen" type="Sprite2D" parent="." unique_id=1252977874]
 visible = false
-modulate = Color(1.6852883, 0, 0.72789526, 1)
+modulate = Color(0, 1.6102315, 0.7594333, 1)
+self_modulate = Color(1, 1, 1, 0)
 texture = ExtResource("1_u5i6v")
 
 [node name="DoorOpen2" type="Sprite2D" parent="DoorOpen" unique_id=1094707417]
-self_modulate = Color(1, 1, 1, 0.59607846)
+self_modulate = Color(1, 1, 1, 0.6627451)
 scale = Vector2(0.79999995, 0.79999995)
 texture = ExtResource("1_u5i6v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DoorOpen" unique_id=126402741]
 libraries/ = SubResource("AnimationLibrary_v7h6k")
 autoplay = &"pulsate_door"
+
+[node name="Arrows" type="Node2D" parent="DoorOpen" unique_id=1001147826]
+modulate = Color(0, 18.892157, 18.892157, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="DoorOpen/Arrows" unique_id=1870767084]
+position = Vector2(0, -53.999996)
+scale = Vector2(0.28000224, 0.28000224)
+texture = ExtResource("2_gqvky")
+
+[node name="Sprite2D2" type="Sprite2D" parent="DoorOpen/Arrows" unique_id=896701493]
+position = Vector2(56.000004, -9.536743e-07)
+rotation = 1.5707964
+scale = Vector2(0.28000224, 0.28000224)
+texture = ExtResource("2_gqvky")
+
+[node name="Sprite2D3" type="Sprite2D" parent="DoorOpen/Arrows" unique_id=428329171]
+position = Vector2(-54, -4.7683716e-07)
+rotation = -1.5707964
+scale = Vector2(0.28000224, 0.28000224)
+texture = ExtResource("2_gqvky")
+
+[node name="Sprite2D4" type="Sprite2D" parent="DoorOpen/Arrows" unique_id=1333927876]
+position = Vector2(7.6293945e-06, 56.999996)
+rotation = 3.1415927
+scale = Vector2(0.28000224, 0.28000224)
+texture = ExtResource("2_gqvky")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1740833084]
 texture = ExtResource("1_3n83d")
