@@ -151,6 +151,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "fade":
 		get_tree().quit()
 	elif anim_name == "fade_to_level":
+		GlobalVars.move_step = 0
+		GlobalVars.coins = 0
+		GlobalVars.move_array.clear()
 		GlobalVars.win = 0
 		if GlobalVars.current_level == 1:
 			var level = "res://Scenes/PlayableLevels/Playable_1.tscn"
