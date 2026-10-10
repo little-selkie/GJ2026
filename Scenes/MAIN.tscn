@@ -22,13 +22,19 @@ door_object = ExtResource("4_5c1w6")
 [node name="MainCharacter" parent="Level0" index="1" unique_id=1410427937 node_paths=PackedStringArray("Hud")]
 Hud = NodePath("../../HUD")
 
+[node name="PointLight2D" parent="Level0/Key/Key" parent_id_path=PackedInt32Array(2120250458, 957518585) index="3" unique_id=1642943532]
+color = Color(0.8862745, 0.8862745, 0, 0.7058824)
+texture_scale = 0.5
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1258235828]
 position = Vector2(-155, -36)
 anchor_mode = 0
 
 [node name="MainMenuMusic" parent="." unique_id=804545339 instance=ExtResource("4_783md")]
 
+[editable path="ShaderScene"]
 [editable path="Level0"]
 [editable path="Level0/BgGrid"]
 [editable path="Level0/MainCharacter"]
 [editable path="Level0/Enemies/Enemy1"]
+[editable path="Level0/Key/Key"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqhwpmxqwx32n" path="res://Scripts/key.gd" id="1_a1obm"]
 [ext_resource type="Texture2D" uid="uid://cte455fuqex2v" path="res://Images/Props/Key.png" id="2_a1obm"]
+[ext_resource type="Texture2D" uid="uid://cc20pelp1df5" path="res://Images/Textures/LightCircle.png" id="3_2ct1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 
@@ -24,6 +25,14 @@ horizontal_alignment = 1
 collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1720888463]
+visible = false
 shape = SubResource("RectangleShape2D_xrivr")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1642943532]
+scale = Vector2(0.9999999, 0.9999999)
+color = Color(1, 1, 0, 0.78431374)
+energy = 8.0
+texture = ExtResource("3_2ct1g")
+texture_scale = 0.25
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
