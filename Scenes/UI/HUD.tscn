@@ -2,9 +2,15 @@
 
 [ext_resource type="Script" uid="uid://d0gbjwaihk4dk" path="res://Scripts/hud.gd" id="1_omqfp"]
 [ext_resource type="Theme" uid="uid://ba5hr3ln210s2" path="res://Scenes/UI/main_theme.tres" id="2_qc5w2"]
+[ext_resource type="Texture2D" uid="uid://cj5w5rvmhaga1" path="res://Images/Props/playmachine.png" id="2_xaom8"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1184858684]
 script = ExtResource("1_omqfp")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1718840263]
+offset_right = 2304.0
+offset_bottom = 1296.0
+texture = ExtResource("2_xaom8")
 
 [node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=934088138]
 anchors_preset = 15

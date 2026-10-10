@@ -27,7 +27,7 @@ color = Color(0.8862745, 0.8862745, 0, 0.7058824)
 texture_scale = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1258235828]
-position = Vector2(-155, -36)
+position = Vector2(-193, -20)
 anchor_mode = 0
 
 [node name="MainMenuMusic" parent="." unique_id=804545339 instance=ExtResource("4_783md")]
