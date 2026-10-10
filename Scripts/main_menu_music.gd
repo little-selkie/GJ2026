@@ -1,6 +1,9 @@
 extends Node2D
 
+var rng = RandomNumberGenerator.new()
 
+func _ready() -> void:
+	$".".get_child(rng.randi_range(1, 4)).play()
 
 func _on_track_1_finished() -> void:
 	$Track2.play()

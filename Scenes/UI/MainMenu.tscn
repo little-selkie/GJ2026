@@ -583,7 +583,7 @@ bus = &"SFX"
 [node name="VictorySound" type="AudioStreamPlayer2D" parent="." unique_id=1671124927]
 stream = ExtResource("28_p7t0b")
 volume_db = -15.294
-bus = &"Music"
+bus = &"SFX"
 
 [connection signal="pressed" from="Menu/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Menu/VBoxContainer/PowerOff" to="." method="_on_power_off_pressed"]
