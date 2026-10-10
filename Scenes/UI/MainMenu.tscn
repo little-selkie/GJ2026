@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bvve5b0c7l37r" path="res://Scripts/main_menu.gd" id="1_g18y6"]
 [ext_resource type="PackedScene" uid="uid://nnhgnhc6rhnc" path="res://Scenes/ShaderScenes/ShaderScene.tscn" id="2_72sra"]
+[ext_resource type="Texture2D" uid="uid://c42ih0vxrxhvw" path="res://Images/Props/LogoTheLegendOfSuperChelMan.PNG" id="3_q0kel"]
 [ext_resource type="Texture2D" uid="uid://cj5w5rvmhaga1" path="res://Images/Props/playmachine.png" id="4_2v0rb"]
 [ext_resource type="Texture2D" uid="uid://dmtjyy3dejxkp" path="res://Images/Buttons/button_right.png" id="6_sqe33"]
 [ext_resource type="Texture2D" uid="uid://ca6yxc8xv41r3" path="res://Images/Buttons/button_right_pressed.png" id="7_p7t0b"]
@@ -169,18 +170,20 @@ mouse_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="Menu" unique_id=1460924269]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(57.2, 30.719997)
+offset_left = -1022.99994
+offset_top = -979.99994
+offset_right = -982.99994
+offset_bottom = -939.99994
+scale = Vector2(107.70029, 71.75416)
 mouse_filter = 1
 color = Color(3.008172e-09, 3.008172e-09, 0.12764448, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu" unique_id=1481566013]
 layout_mode = 0
 offset_left = 815.0
-offset_top = 509.0
+offset_top = 713.0
 offset_right = 1476.0
-offset_bottom = 839.0
+offset_bottom = 1043.0
 
 [node name="Start" type="Button" parent="Menu/VBoxContainer" unique_id=951688179]
 layout_mode = 2
@@ -193,18 +196,27 @@ theme = ExtResource("23_xwq8e")
 disabled = true
 text = "Power Off"
 
+[node name="GameLogo" type="TextureRect" parent="Menu" unique_id=1664782002]
+layout_mode = 0
+offset_left = 691.0
+offset_top = 47.0
+offset_right = 2739.0
+offset_bottom = 2095.0
+scale = Vector2(0.39999825, 0.39999825)
+texture = ExtResource("3_q0kel")
+
 [node name="WinLabel" type="Label" parent="Menu" unique_id=1015848060]
 visible = false
 layout_mode = 0
-offset_left = 724.0
-offset_top = 231.0
-offset_right = 1544.0
-offset_bottom = 471.0
+offset_left = 534.0
+offset_top = 216.0
+offset_right = 1764.0
+offset_bottom = 576.0
 theme = ExtResource("23_xwq8e")
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.06191711, 0.29099154, 0.96120757, 0.6784314)
 theme_override_colors/font_outline_color = Color(0, 0.14968702, 0.7949819, 1)
-theme_override_font_sizes/font_size = 200
+theme_override_font_sizes/font_size = 300
 text = "You Win!"
 
 [node name="AnimationParts" type="Control" parent="Menu" unique_id=749670051]
@@ -215,9 +227,9 @@ offset_bottom = 113.0
 
 [node name="Whole" type="ColorRect" parent="Menu/AnimationParts" unique_id=810209240]
 layout_mode = 0
-offset_top = 71.99988
+offset_top = -73.0
 offset_right = 39.99998
-offset_bottom = 111.99988
+offset_bottom = -33.0
 scale = Vector2(57.520004, 28.999998)
 color = Color(0, 0, 0, 1)
 

@@ -16,8 +16,10 @@ func _ready() -> void:
 
 func _draw() -> void:
 	if GlobalVars.win != true:
-		pass
+		$Menu/GameLogo.visible = true
+		$Menu/WinLabel.visible = false
 	else:
+		$Menu/GameLogo.visible = false
 		$HUD/TextureRect2.visible = false
 		$Menu/VBoxContainer/Start.text = "Restart"
 		$VictorySound.play()
