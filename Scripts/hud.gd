@@ -3,8 +3,14 @@ extends CanvasLayer
 @export var character_timer: Timer
 @export var enemies: Node2D
 var rng = RandomNumberGenerator.new()
+var current_focus_vars: Array[String] = ["Master","Music","SFX"]
+var current_focus: String
+var master_index = AudioServer.get_bus_index("Master")
+var music_index = AudioServer.get_bus_index("Music")
+var sfx_index = AudioServer.get_bus_index("SFX")
 
 func _ready() -> void:
+	current_focus = current_focus_vars[0]
 	pass
 
 func _process(_delta: float) -> void:
@@ -103,3 +109,82 @@ func all_steps_finished() -> void:
 	character_timer.stop()
 	for x in enemies.get_child_count():
 		enemies.get_child(x).find_child("StepTimer").stop()
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		$AnimationPlayer.play("MP3move")
+	else:
+		$AnimationPlayer.play_backwards("MP3move")
+
+
+func _on_button_up_pressed() -> void:
+	if current_focus == str(current_focus_vars[0]):
+		current_focus = current_focus_vars[2]
+		$MP3Player/SelectionBG/MasterFocus.self_modulate = Color(0.0, 0.0, 0.0, 0.0)
+		$MP3Player/SelectionBG/SFXFocus.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+	elif current_focus == str(current_focus_vars[1]):
+		current_focus = current_focus_vars[0]
+		$MP3Player/SelectionBG/MusicFocus.self_modulate = Color(0.0, 0.0, 0.0, 0.0)
+		$MP3Player/SelectionBG/MasterFocus.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+	elif current_focus == str(current_focus_vars[2]):
+		current_focus = current_focus_vars[1]
+		$MP3Player/SelectionBG/SFXFocus.self_modulate = Color(0.0, 0.0, 0.0, 0.0)
+		$MP3Player/SelectionBG/MusicFocus.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+func _on_button_down_pressed() -> void:
+	if current_focus == str(current_focus_vars[0]):
+		current_focus = current_focus_vars[1]
+		$MP3Player/SelectionBG/MasterFocus.self_modulate = Color(0.0, 0.0, 0.0, 0.0)
+		$MP3Player/SelectionBG/MusicFocus.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+	elif current_focus == str(current_focus_vars[1]):
+		current_focus = current_focus_vars[2]
+		$MP3Player/SelectionBG/MusicFocus.self_modulate = Color(0.0, 0.0, 0.0, 0.0)
+		$MP3Player/SelectionBG/SFXFocus.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+	elif current_focus == str(current_focus_vars[2]):
+		current_focus = current_focus_vars[0]
+		$MP3Player/SelectionBG/SFXFocus.self_modulate = Color(0.0, 0.0, 0.0, 0.0)
+		$MP3Player/SelectionBG/MasterFocus.self_modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+
+
+func _on_button_left_pressed() -> void:
+	if current_focus == str(current_focus_vars[0]):
+		$MP3Player/MusicOptions/Master/HScrollBarMaster.value -= $MP3Player/MusicOptions/Master/HScrollBarMaster.step
+	elif current_focus == str(current_focus_vars[1]):
+		$MP3Player/MusicOptions/Music/HScrollBarMusic.value -= $MP3Player/MusicOptions/Music/HScrollBarMusic.step
+	elif current_focus == str(current_focus_vars[2]):
+		$MP3Player/MusicOptions/SFX/HScrollBarSFX.value -= $MP3Player/MusicOptions/SFX/HScrollBarSFX.step
+
+
+func _on_button_right_pressed() -> void:
+	if current_focus == str(current_focus_vars[0]):
+		$MP3Player/MusicOptions/Master/HScrollBarMaster.value += $MP3Player/MusicOptions/Master/HScrollBarMaster.step
+	elif current_focus == str(current_focus_vars[1]):
+		$MP3Player/MusicOptions/Music/HScrollBarMusic.value += $MP3Player/MusicOptions/Music/HScrollBarMusic.step
+	elif current_focus == str(current_focus_vars[2]):
+		$MP3Player/MusicOptions/SFX/HScrollBarSFX.value += $MP3Player/MusicOptions/SFX/HScrollBarSFX.step
+
+
+func _on_h_scroll_bar_value_changed(value: float) -> void:
+	if value == 0:
+		AudioServer.set_bus_mute(master_index, true)
+	else:
+		AudioServer.set_bus_mute(master_index, false)
+		AudioServer.set_bus_volume_db(master_index, value)
+
+
+func _on_h_scroll_bar_music_value_changed(value: float) -> void:
+	if value == 0:
+		AudioServer.set_bus_mute(music_index, true)
+	else:
+		AudioServer.set_bus_mute(music_index, false)
+		AudioServer.set_bus_volume_db(music_index, value)
+
+
+func _on_h_scroll_bar_sfx_value_changed(value: float) -> void:
+	if value == 0:
+		AudioServer.set_bus_mute(sfx_index, true)
+	else:
+		AudioServer.set_bus_mute(sfx_index, false)
+		AudioServer.set_bus_volume_db(sfx_index, value)
