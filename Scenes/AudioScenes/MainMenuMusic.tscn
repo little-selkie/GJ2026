@@ -8,7 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://dt7nwm8gf5g55" path="res://Audio/Music/moodmode-that-game-arcade-236111.mp3" id="4_yrb1k"]
 
 [sub_resource type="Animation" id="Animation_3liat"]
-length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -60,7 +59,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_yrb1k"]
 resource_name = "ease_in"
-length = 0.001
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
