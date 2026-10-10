@@ -1,12 +1,36 @@
 [gd_scene format=3 uid="uid://b75k44hhqjpmj"]
 
-[ext_resource type="PackedScene" uid="uid://chaj24gl6w362" path="res://Scenes/MAIN.tscn" id="1_t851s"]
+[ext_resource type="PackedScene" uid="uid://nnhgnhc6rhnc" path="res://Scenes/ShaderScenes/ShaderScene.tscn" id="1_niqq5"]
+[ext_resource type="PackedScene" uid="uid://cjo64evrf3wms" path="res://Scenes/UI/HUD.tscn" id="2_is8ld"]
+[ext_resource type="PackedScene" uid="uid://rim5g613n5l0" path="res://Scenes/AudioScenes/MainMenuMusic.tscn" id="3_fw07j"]
+[ext_resource type="PackedScene" uid="uid://b1l5egke5pxrx" path="res://Scenes/LevelScenes/level_1.tscn" id="4_y0k8b"]
 
 [node name="Playable1" type="Node2D" unique_id=2105773400]
 
-[node name="MAIN" parent="." unique_id=1001715188 instance=ExtResource("1_t851s")]
+[node name="MAIN" type="Node2D" parent="." unique_id=1001715188]
 
-[editable path="MAIN"]
+[node name="ShaderScene" parent="MAIN" unique_id=295264481 instance=ExtResource("1_niqq5")]
+
+[node name="HUD" parent="MAIN" unique_id=690529518 node_paths=PackedStringArray("character_timer", "enemies") instance=ExtResource("2_is8ld")]
+character_timer = NodePath("../Level_1/MainCharacter/Timer")
+enemies = NodePath("../Level_1/Enemy")
+
+[node name="Camera2D" type="Camera2D" parent="MAIN" unique_id=1258235828]
+position = Vector2(152, -33)
+anchor_mode = 0
+
+[node name="MainMenuMusic" parent="MAIN" unique_id=804545339 instance=ExtResource("3_fw07j")]
+
+[node name="Level_1" parent="MAIN" unique_id=470900170 instance=ExtResource("4_y0k8b")]
+
+[node name="MainCharacter" parent="MAIN/Level_1" index="1" unique_id=1410427937 node_paths=PackedStringArray("Hud")]
+Hud = NodePath("../../HUD")
+
+[node name="Key" parent="MAIN/Level_1/Key" parent_id_path=PackedInt32Array(470900170, 1772841688) index="0" unique_id=957518585 node_paths=PackedStringArray("Grid")]
+Grid = NodePath("../../BgGrid")
+
+[connection signal="pressed" from="MAIN/HUD/GlitchPunchButton" to="MAIN/ShaderScene/CRT_Filter" method="_on_reset_button_pressed"]
+
 [editable path="MAIN/ShaderScene"]
 [editable path="MAIN/HUD"]
 [editable path="MAIN/Level_1"]
