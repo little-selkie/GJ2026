@@ -58,6 +58,14 @@ uniform float animated_scan_speed_2 : hint_range(0.0, 5.0) = 0.4;
 
 uniform float noise_strength : hint_range(0.0, 0.25) = 0.04;
 uniform float noise_speed : hint_range(0.0, 60.0) = 12.0;
+uniform float glitch_flicker_strength : hint_range(0.0, 1.0) = 0.0;
+uniform float scanline_noise_strength : hint_range(0.0, 1.0) = 0.0;
+uniform float interference_strength : hint_range(0.0, 1.0) = 0.0;
+uniform float glitch_dropout_strength : hint_range(0.0, 1.0) = 0.0;
+
+uniform bool glitch_active = false;
+uniform float animated_scanline_thickness_1 : hint_range(0.05, 0.9) = 0.35;
+uniform float animated_scanline_thickness_2 : hint_range(0.05, 0.9) = 0.25;
 
 
 // ============================================================
@@ -150,42 +158,143 @@ void fragment() {
 
 
     // --------------------------------------------------------
-    // 4. STATIC CRT SCANLINES
+    // 4. NOISY STATIC SCANLINES
     // --------------------------------------------------------
 
     float line = FRAGCOORD.y / scanline_size;
     float s = 0.5 + 0.5 * cos(line * 6.2832);
 
+       float line_id = floor(FRAGCOORD.y / max(scanline_size, 1.0));
+    float line_noise = hash(vec2(line_id, 19.7));
+
+        float noisy_scanlines = clamp(
+        scanlines
+        + (line_noise - 0.5) * scanline_noise_strength,
+        0.0,
+        1.0
+    );
+
     float lum = dot(col, vec3(0.3, 0.59, 0.11));
 
     col *= mix(
         1.0,
-        mix(1.0 - scanlines, 1.0, s),
+        mix(1.0 - noisy_scanlines, 1.0, s),
         1.0 - lum * 0.4
     );
 
+    // --------------------------------------------------------
+    // 4B. WIDE HORIZONTAL INTERFERENCE BANDS
+    // --------------------------------------------------------
+
+        float band_id = floor(FRAGCOORD.y / 10.0);
+    float band_noise = hash(vec2(band_id, 73.1));
+
+    float band_mask = smoothstep(0.68, 0.9, band_noise);
+
+    col *= 1.0 - band_mask * interference_strength * 0.65;
+
 
     // --------------------------------------------------------
-    // 5. ANIMATED SCANLINES FROM THE SECOND SHADER
+    // 4. STATIC CRT SCANLINES
+    // --------------------------------------------------------
+//
+    // float line = FRAGCOORD.y / scanline_size;
+    // float s = 0.5 + 0.5 * cos(line * 6.2832);
+//
+    // float lum = dot(col, vec3(0.3, 0.59, 0.11));
+
+    // col *= mix(
+        // 1.0,
+        // mix(1.0 - scanlines, 1.0, s),
+        // 1.0 - lum * 0.4
+    // );
+
+
+    // --------------------------------------------------------
+    // 5. ANIMATED SCANLINES
+    // Normal state: original smooth sine scanlines.
+    // Glitch state: thicker animated dark bands.
     // --------------------------------------------------------
 
-    float animated_scan_1 = sin(
-        (SCREEN_UV.y + TIME * animated_scan_speed_1)
-        * scanlines_1
-    ) * scan_reduction - scan_reduction;
+    if (!glitch_active) {
+        
+        float animated_scan_1 = sin(
+            (SCREEN_UV.y + TIME * animated_scan_speed_1)
+            * scanlines_1
+        ) * scan_reduction - scan_reduction;
 
-    float animated_scan_2 = sin(
-        (SCREEN_UV.y + TIME * animated_scan_speed_2)
-        * scanlines_2
-    ) * scan_reduction - scan_reduction;
+        float animated_scan_2 = sin(
+            (SCREEN_UV.y + TIME * animated_scan_speed_2)
+            * scanlines_2
+        ) * scan_reduction - scan_reduction;
 
-    // Use the scanlines as brightness multipliers.
-    // This avoids the excessive brightness caused by multiplying
-    // the original second shader's output by 5.
+        col *= max(0.0, 1.0 + animated_scan_1);
+        col *= max(0.0, 1.0 + animated_scan_2);
 
-    col *= max(0.0, 1.0 + animated_scan_1);
-    col *= max(0.0, 1.0 + animated_scan_2);
+    } else {
+       
+        float phase_1 = fract(
+            ((SCREEN_UV.y + TIME * animated_scan_speed_1)
+            * scanlines_1) / 6.283185
+        );
 
+        float phase_2 = fract(
+            ((SCREEN_UV.y + TIME * animated_scan_speed_2)
+            * scanlines_2) / 6.283185
+        );
+        
+        float distance_1 = abs(
+            fract(phase_1 - 0.25) - 0.5
+        ) * 2.0;
+
+        float distance_2 = abs(
+            fract(phase_2 - 0.25) - 0.5
+        ) * 2.0;
+
+        float band_1 = 1.0 - smoothstep(
+            animated_scanline_thickness_1,
+            animated_scanline_thickness_1 + 0.08,
+            distance_1
+        );
+
+        float band_2 = 1.0 - smoothstep(
+            animated_scanline_thickness_2,
+            animated_scanline_thickness_2 + 0.08,
+            distance_2
+        );
+
+        float band_strength = min(
+            scan_reduction * 2.0,
+            0.95
+        );
+
+        col *= 1.0 - band_1 * band_strength;
+        col *= 1.0 - band_2 * band_strength;
+    }
+
+
+
+    //// --------------------------------------------------------
+    //// 5. ANIMATED SCANLINES FROM THE SECOND SHADER
+    //// --------------------------------------------------------
+//
+    //float animated_scan_1 = sin(
+        //(SCREEN_UV.y + TIME * animated_scan_speed_1)
+        //* scanlines_1
+    //) * scan_reduction - scan_reduction;
+//
+    //float animated_scan_2 = sin(
+        //(SCREEN_UV.y + TIME * animated_scan_speed_2)
+        //* scanlines_2
+    //) * scan_reduction - scan_reduction;
+//
+    //// Use the scanlines as brightness multipliers.
+    //// This avoids the excessive brightness caused by multiplying
+    //// the original second shader's output by 5.
+//
+    //col *= max(0.0, 1.0 + animated_scan_1);
+    //col *= max(0.0, 1.0 + animated_scan_2);
+//
 
     // --------------------------------------------------------
     // 6. OPTIONAL RGB MASK
@@ -260,6 +369,43 @@ void fragment() {
 
     col *= brightness;
 
+// Chaotic brightness flicker during a CRT failure.
+
+float glitch_frame = floor(TIME * 1.5);
+
+float flicker_roll = hash(vec2(glitch_frame, 7.13));
+float flicker_value = hash(vec2(glitch_frame, 43.17));
+
+float flicker_trigger = step(0.65, flicker_roll);
+
+float flicker_target = mix(0.65, 1.15, flicker_value);
+
+float flicker_brightness = mix(
+    1.0,
+    flicker_target,
+    flicker_trigger * glitch_flicker_strength
+);
+
+col *= flicker_brightness;
+
+// float glitch_frame = floor(TIME * 1.5);
+//
+// float flicker_roll = hash(vec2(glitch_frame, 7.13));
+// float flicker_value = hash(vec2(glitch_frame, 43.17));
+//
+// float flicker_trigger = step(
+//    1.0 - glitch_flicker_strength * 0.65,
+//    flicker_roll
+// );
+//
+// float flicker_brightness = mix(
+//    1.0,
+//    mix(0.08, 1.8, flicker_value),
+//    flicker_trigger
+// );
+//
+// col *= flicker_brightness;
+
 
     // --------------------------------------------------------
     // 10. ANIMATED GRAIN / NOISE
@@ -285,6 +431,46 @@ void fragment() {
     // --------------------------------------------------------
 
     col += (hash(FRAGCOORD.xy) - 0.5) / 255.0;
+
+// --------------------------------------------------------
+// 11B. OCCASIONAL SIGNAL DROPOUT
+// --------------------------------------------------------
+
+float dropout_cycle = floor(TIME / 2.0);
+float dropout_phase = mod(TIME, 2.0);
+
+float dropout_roll = hash(vec2(dropout_cycle, 91.7));
+float dropout_start =
+    1.0 + hash(vec2(dropout_cycle, 17.3)) * 2.0;
+
+float dropout_duration =
+    0.20 + hash(vec2(dropout_cycle, 42.9)) * 0.18;
+
+float dropout_window = 0.0;
+
+if (dropout_roll < glitch_dropout_strength) {
+    float fade_in = smoothstep(
+        dropout_start,
+        dropout_start + 0.06,
+        dropout_phase
+    );
+
+    float fade_out = 1.0 - smoothstep(
+        dropout_start + dropout_duration - 0.06,
+        dropout_start + dropout_duration,
+        dropout_phase
+    );
+
+    dropout_window = fade_in * fade_out;
+}
+
+float darkness_roll = hash(vec2(dropout_cycle, 66.2));
+
+float dropout_darkness = darkness_roll > 0.65
+    ? 1.0
+    : mix(0.75, 0.95, darkness_roll / 0.65);
+
+col *= 1.0 - dropout_window * dropout_darkness;
 
 
     // --------------------------------------------------------

@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://nnhgnhc6rhnc"]
 
 [ext_resource type="Shader" uid="uid://b6mjkfc1h27d4" path="res://Scenes/TestScenes/CRTFilterFinal.gdshader" id="1_n3qak"]
+[ext_resource type="Script" uid="uid://b6uodigyjta63" path="res://Scenes/ShaderScenes/crt_randomizer.gd" id="1_vokme"]
+[ext_resource type="AudioStream" uid="uid://b05jpfowjsx5o" path="res://Audio/SFX/GlitchNoise.mp3" id="2_71gfe"]
+[ext_resource type="AudioStream" uid="uid://b0fdjlmewt2f1" path="res://Audio/SFX/ArcadeHit.wav" id="3_vtqal"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bjrsl"]
 shader = ExtResource("1_n3qak")
@@ -20,6 +23,13 @@ shader_parameter/animated_scan_speed_1 = 1.0
 shader_parameter/animated_scan_speed_2 = 0.4
 shader_parameter/noise_strength = 0.04
 shader_parameter/noise_speed = 12.0
+shader_parameter/glitch_flicker_strength = 0.0
+shader_parameter/scanline_noise_strength = 0.0
+shader_parameter/interference_strength = 0.0
+shader_parameter/glitch_dropout_strength = 0.0
+shader_parameter/glitch_active = false
+shader_parameter/animated_scanline_thickness_1 = 0.35
+shader_parameter/animated_scanline_thickness_2 = 0.25
 shader_parameter/radial_vignette_alpha = 0.2
 shader_parameter/radial_vignette_inner_radius = 0.0
 shader_parameter/radial_vignette_outer_radius = 1.0
@@ -27,6 +37,9 @@ shader_parameter/radial_vignette_outer_radius = 1.0
 [node name="ShaderScene" type="Node2D" unique_id=295264481]
 
 [node name="CRT_Filter" type="CanvasLayer" parent="." unique_id=1978822454]
+script = ExtResource("1_vokme")
+glitch_sound = ExtResource("2_71gfe")
+fix_sound = ExtResource("3_vtqal")
 
 [node name="CRT_Filter_Final" type="ColorRect" parent="CRT_Filter" unique_id=1961594303]
 material = SubResource("ShaderMaterial_bjrsl")

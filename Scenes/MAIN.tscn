@@ -27,7 +27,10 @@ Hud = NodePath("../../HUD")
 [node name="Key" parent="Level_1/Key" parent_id_path=PackedInt32Array(470900170, 1772841688) index="0" unique_id=957518585 node_paths=PackedStringArray("Grid")]
 Grid = NodePath("../../BgGrid")
 
+[connection signal="pressed" from="HUD/GlitchPunchButton" to="ShaderScene/CRT_Filter" method="_on_reset_button_pressed"]
+
 [editable path="ShaderScene"]
+[editable path="HUD"]
 [editable path="Level_1"]
 [editable path="Level_1/BgGrid"]
 [editable path="Level_1/MainCharacter"]

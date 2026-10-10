@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://c0xiy76a2h64x" path="res://Images/Props/play_button_pressed.png" id="15_jbjhr"]
 [ext_resource type="Texture2D" uid="uid://3qwshxtqaxim" path="res://Images/Props/mp3_player.png" id="16_jbjhr"]
 [ext_resource type="Theme" uid="uid://dpuidr0xvg03e" path="res://Scenes/UI/MP3Player_theme.tres" id="17_b3vmo"]
+[ext_resource type="Texture2D" uid="uid://dvmiu0meqxo3r" path="res://Images/Props/kick_me.png" id="17_u1rxn"]
 [ext_resource type="AudioStream" uid="uid://cnywt7rh7n85w" path="res://Audio/SFX/DigitalButtonPressUp.mp3" id="18_dds1n"]
 [ext_resource type="AudioStream" uid="uid://cspfjychyvwwr" path="res://Audio/SFX/DigitalButtonPressRight.mp3" id="19_khvou"]
 [ext_resource type="AudioStream" uid="uid://blmbx5y7fcsk8" path="res://Audio/SFX/DigitalButtonPressDown.mp3" id="20_55bpt"]
@@ -289,6 +290,17 @@ texture_pressed = ExtResource("15_jbjhr")
 texture_hover = ExtResource("14_gmqj4")
 texture_disabled = ExtResource("15_jbjhr")
 texture_focused = ExtResource("14_gmqj4")
+
+[node name="GlitchPunchButton" type="TextureButton" parent="." unique_id=1797181421]
+offset_left = 4.0
+offset_top = -5.0
+offset_right = 318.0
+offset_bottom = 349.0
+texture_normal = ExtResource("17_u1rxn")
+texture_pressed = ExtResource("17_u1rxn")
+texture_hover = ExtResource("17_u1rxn")
+texture_disabled = ExtResource("17_u1rxn")
+texture_focused = ExtResource("17_u1rxn")
 
 [node name="MP3Player" type="Control" parent="." unique_id=1448928596]
 layout_mode = 3
