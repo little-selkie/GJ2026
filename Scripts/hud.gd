@@ -77,10 +77,10 @@ func _on_stop_buttom_pressed() -> void:
 
 func _on_start_button_pressed() -> void:
 	character_timer.start()
-	$GridContainer/HBoxContainer/UpButton.disabled = true
-	$GridContainer/HBoxContainer/RightButton.disabled = true
-	$GridContainer/HBoxContainer/DownButton.disabled = true
-	$GridContainer/HBoxContainer/LeftButton.disabled = true
+	$Buttons/UpButton.disabled = true
+	$Buttons/RightButton.disabled = true
+	$Buttons/DownButton.disabled = true
+	$Buttons/LeftButton.disabled = true
 	$GridContainer/HBoxContainer/DeleteButton.disabled = true
 	$GridContainer/ClearButton.disabled = true
 	$GridContainer/StartButton.disabled = true
@@ -90,10 +90,10 @@ func _on_start_button_pressed() -> void:
 func all_steps_finished() -> void: 
 	for n in $ScrollContainer/Commands.get_children():
 		$ScrollContainer/Commands.remove_child(n)
-	$GridContainer/HBoxContainer/UpButton.disabled = false
-	$GridContainer/HBoxContainer/RightButton.disabled = false
-	$GridContainer/HBoxContainer/DownButton.disabled = false
-	$GridContainer/HBoxContainer/LeftButton.disabled = false
+	$Buttons/UpButton.disabled = false
+	$Buttons/RightButton.disabled = false
+	$Buttons/DownButton.disabled = false
+	$Buttons/LeftButton.disabled = false
 	$GridContainer/HBoxContainer/DeleteButton.disabled = false
 	$GridContainer/ClearButton.disabled = false
 	$GridContainer/StartButton.disabled = false

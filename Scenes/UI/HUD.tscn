@@ -109,6 +109,7 @@ layout_mode = 2
 text = "Restart"
 
 [node name="Buttons" type="Control" parent="." unique_id=1610728450]
+modulate = Color(1.1755697, 0, 0, 1)
 layout_mode = 3
 anchors_preset = 0
 offset_left = 9.0
