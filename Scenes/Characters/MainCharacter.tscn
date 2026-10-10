@@ -85,6 +85,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1880606088]
 shape = SubResource("RectangleShape2D_xrivr")
+disabled = true
 
 [node name="Timer" type="Timer" parent="." unique_id=27676574]
 

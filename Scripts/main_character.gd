@@ -88,3 +88,10 @@ func _on_sound_timer_timeout() -> void:
 	$MoveSound.stop()
 	var my_random_number = rng.randf_range(1, 1.4)
 	$MoveSound.pitch_scale = my_random_number
+
+
+func _on_check_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		$Area2D/CollisionShape2D.disabled = true
+	else:
+		$Area2D/CollisionShape2D.disabled = false
