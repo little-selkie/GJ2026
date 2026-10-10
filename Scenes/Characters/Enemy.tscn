@@ -62,6 +62,7 @@ shape = SubResource("RectangleShape2D_xrivr")
 [node name="StepTimer" type="Timer" parent="." unique_id=1683482619]
 
 [node name="DirectionLabel" type="Label" parent="." unique_id=1343732652]
+visible = false
 offset_left = -100.0
 offset_top = -48.0
 offset_right = 131.0

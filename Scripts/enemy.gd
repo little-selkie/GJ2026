@@ -99,14 +99,13 @@ func travel() -> void:
 		move_down()
 	elif movement_pattern[current_step-1] == 8:
 		move_left()
-	pattern_to_text()
 
-func pattern_to_text() -> void:
-		if movement_pattern[current_step] == 1:
-			$DirectionLabel.text = str("Up")
-		if movement_pattern[current_step] == 2:
-			$DirectionLabel.text = str("Right")
-		if movement_pattern[current_step] == 4:
-			$DirectionLabel.text = str("Down")
-		if movement_pattern[current_step] == 8:
-			$DirectionLabel.text = str("Left")
+#func pattern_to_text() -> void:
+		#if movement_pattern[current_step] == 1:
+			#$DirectionLabel.text = str("Up")
+		#if movement_pattern[current_step] == 2:
+			#$DirectionLabel.text = str("Right")
+		#if movement_pattern[current_step] == 4:
+			#$DirectionLabel.text = str("Down")
+		#if movement_pattern[current_step] == 8:
+			#$DirectionLabel.text = str("Left")
