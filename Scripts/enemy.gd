@@ -94,14 +94,17 @@ func move_left() -> void:
 	enemy_atlas_position = Vector2i(enemy_atlas_position.x-1, enemy_atlas_position.y)
 
 func travel() -> void:
-	if movement_pattern[current_step-1] == 1:
-		move_up()
-	elif movement_pattern[current_step-1] == 2:
-		move_right()
-	elif movement_pattern[current_step-1] == 4:
-		move_down()
-	elif movement_pattern[current_step-1] == 8:
-		move_left()
+	if current_step > movement_pattern.size():
+		pass
+	else:
+		if movement_pattern[current_step-1] == 1:
+			move_up()
+		elif movement_pattern[current_step-1] == 2:
+			move_right()
+		elif movement_pattern[current_step-1] == 4:
+			move_down()
+		elif movement_pattern[current_step-1] == 8:
+			move_left()
 
 #func pattern_to_text() -> void:
 		#if movement_pattern[current_step] == 1:
