@@ -49,6 +49,7 @@ func move() -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	$AudioStreamPlayer2D.play()
 	$Sprite2D.visible = false
+	$Area2D.visible = false
 	$DeathTimer.start()
 	$LoseSound.play()
 	#get_tree().reload_current_scene()
