@@ -100,5 +100,8 @@ func _on_lose_sound_finished() -> void:
 	GlobalVars.coins = 0
 	GlobalVars.move_step = 0
 	GlobalVars.move_array.clear()
-	GlobalVars.total_attempts = 5
+	if GlobalVars.current_level == 3:
+		GlobalVars.total_attempts = 10
+	else:
+		GlobalVars.total_attempts = 5
 	get_tree().reload_current_scene()
