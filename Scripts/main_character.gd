@@ -50,10 +50,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	$AudioStreamPlayer2D.play()
 	$Sprite2D.visible = false
 	$DeathTimer.start()
-	GlobalVars.coins = 0
-	GlobalVars.move_step = 0
-	GlobalVars.move_array.clear()
-	GlobalVars.total_attempts = 5
+	$LoseSound.play()
 	#get_tree().reload_current_scene()
 
 
@@ -80,8 +77,9 @@ func _on_timer_timeout() -> void:
 
 
 func _on_death_timer_timeout() -> void:
-	GlobalVars.total_attempts = 5
-	get_tree().reload_current_scene()
+	pass
+	#GlobalVars.total_attempts = 5
+	#get_tree().reload_current_scene()
 
 
 func _on_sound_timer_timeout() -> void:
@@ -95,3 +93,11 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 		$Area2D/CollisionShape2D.disabled = true
 	else:
 		$Area2D/CollisionShape2D.disabled = false
+
+
+func _on_lose_sound_finished() -> void:
+	GlobalVars.coins = 0
+	GlobalVars.move_step = 0
+	GlobalVars.move_array.clear()
+	GlobalVars.total_attempts = 5
+	get_tree().reload_current_scene()

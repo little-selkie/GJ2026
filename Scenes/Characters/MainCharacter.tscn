@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://47ssdiubpu4w" path="res://Images/Props/ChelMan.png" id="2_4flse"]
 [ext_resource type="AudioStream" uid="uid://18neo22j8u1p" path="res://Audio/SFX/enemyhit.mp3" id="3_j5d3a"]
 [ext_resource type="AudioStream" uid="uid://bcyt1e2l0euv7" path="res://Audio/SFX/walk2.mp3" id="4_cbltj"]
+[ext_resource type="AudioStream" uid="uid://bh64l5dvlj110" path="res://Audio/SFX/GameOver.mp3" id="5_qygd7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(128, 128)
@@ -108,7 +109,13 @@ bus = &"SFX"
 wait_time = 0.4
 one_shot = true
 
+[node name="LoseSound" type="AudioStreamPlayer2D" parent="." unique_id=915221934]
+stream = ExtResource("5_qygd7")
+volume_db = -8.558
+bus = &"Music"
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="SoundTimer" to="." method="_on_sound_timer_timeout"]
+[connection signal="finished" from="LoseSound" to="." method="_on_lose_sound_finished"]
