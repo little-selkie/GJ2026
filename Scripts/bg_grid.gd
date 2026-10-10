@@ -83,7 +83,7 @@ func check_if_wall(tile_coordinates) -> bool:
 	return is_wall
 
 func open_the_door() -> void:
-	door_object.get_child(0).visible = false
+	$Walls/TheDoor/Sprite2D.visible = false
 	for tile_position in $ActionGrid.get_used_cells():
 		if $ActionGrid.get_cell_tile_data(tile_position).get_custom_data("door") == true:
 			$ActionGrid.erase_cell(tile_position)

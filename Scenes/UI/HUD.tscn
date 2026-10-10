@@ -14,6 +14,8 @@
 [ext_resource type="AudioStream" uid="uid://bimojclxqyycc" path="res://Audio/SFX/PhysicalButtonPress.mp3" id="12_eebq5"]
 [ext_resource type="Texture2D" uid="uid://d0phmohsd8g0h" path="res://Images/Buttons/restart_button.png" id="12_jt2rc"]
 [ext_resource type="Texture2D" uid="uid://nygp8s60urlo" path="res://Images/Buttons/restart_button_pressed.png" id="13_pd044"]
+[ext_resource type="Texture2D" uid="uid://duup7kap7kf2v" path="res://Images/Props/play_button.png" id="14_gmqj4"]
+[ext_resource type="Texture2D" uid="uid://c0xiy76a2h64x" path="res://Images/Props/play_button_pressed.png" id="15_jbjhr"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1184858684]
 script = ExtResource("1_omqfp")
@@ -102,10 +104,6 @@ text = "Delete Last"
 layout_mode = 2
 text = "Clear All"
 
-[node name="StartButton" type="Button" parent="GridContainer" unique_id=1971339547]
-layout_mode = 2
-text = "Start"
-
 [node name="Buttons" type="Control" parent="." unique_id=1610728450]
 modulate = Color(1.1755697, 0, 0, 1)
 layout_mode = 3
@@ -176,14 +174,26 @@ texture_hover = ExtResource("12_jt2rc")
 texture_disabled = ExtResource("13_pd044")
 texture_focused = ExtResource("12_jt2rc")
 
+[node name="StartButton" type="TextureButton" parent="." unique_id=1165277679]
+modulate = Color(0.6431373, 1, 1, 1)
+offset_left = 950.0
+offset_top = 1054.0
+offset_right = 1364.0
+offset_bottom = 1284.0
+texture_normal = ExtResource("14_gmqj4")
+texture_pressed = ExtResource("15_jbjhr")
+texture_hover = ExtResource("14_gmqj4")
+texture_disabled = ExtResource("15_jbjhr")
+texture_focused = ExtResource("14_gmqj4")
+
 [node name="ButtonClick" type="AudioStreamPlayer2D" parent="." unique_id=1097745272]
 stream = ExtResource("12_eebq5")
 
 [connection signal="pressed" from="GridContainer/HBoxContainer/DeleteButton" to="." method="_on_delete_button_pressed"]
 [connection signal="pressed" from="GridContainer/ClearButton" to="." method="_on_clear_button_pressed"]
-[connection signal="pressed" from="GridContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Buttons/RightButton" to="." method="_on_right_button_pressed"]
 [connection signal="pressed" from="Buttons/DownButton" to="." method="_on_down_button_pressed"]
 [connection signal="pressed" from="Buttons/LeftButton" to="." method="_on_left_button_pressed"]
 [connection signal="pressed" from="Buttons/UpButton" to="." method="_on_up_button_pressed"]
 [connection signal="pressed" from="Buttons/StopButtom" to="." method="_on_stop_buttom_pressed"]
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

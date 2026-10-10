@@ -76,6 +76,9 @@ func _on_stop_buttom_pressed() -> void:
 
 
 func _on_start_button_pressed() -> void:
+	$ButtonClick.volume_db = rng.randf_range(-6, 0)
+	$ButtonClick.pitch_scale = rng.randf_range(0.8, 1.2)
+	$ButtonClick.play()
 	character_timer.start()
 	$Buttons/UpButton.disabled = true
 	$Buttons/RightButton.disabled = true
@@ -83,7 +86,7 @@ func _on_start_button_pressed() -> void:
 	$Buttons/LeftButton.disabled = true
 	$GridContainer/HBoxContainer/DeleteButton.disabled = true
 	$GridContainer/ClearButton.disabled = true
-	$GridContainer/StartButton.disabled = true
+	$StartButton.disabled = true
 	for x in enemies.get_child_count():
 		enemies.get_child(x).find_child("StepTimer").start()
 
@@ -96,7 +99,7 @@ func all_steps_finished() -> void:
 	$Buttons/LeftButton.disabled = false
 	$GridContainer/HBoxContainer/DeleteButton.disabled = false
 	$GridContainer/ClearButton.disabled = false
-	$GridContainer/StartButton.disabled = false
+	$StartButton.disabled = false
 	character_timer.stop()
 	for x in enemies.get_child_count():
 		enemies.get_child(x).find_child("StepTimer").stop()
