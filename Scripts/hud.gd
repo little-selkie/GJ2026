@@ -93,8 +93,8 @@ func _on_start_button_pressed() -> void:
 	$Buttons/RightButton.disabled = true
 	$Buttons/DownButton.disabled = true
 	$Buttons/LeftButton.disabled = true
-	$GridContainer/HBoxContainer/DeleteButton.disabled = true
-	$GridContainer/ClearButton.disabled = true
+	$Notepad/DeleteButton.disabled = true
+	$Notepad/ClearButton.disabled = true
 	$StartButton.disabled = true
 	for x in enemies.get_child_count():
 		enemies.get_child(x).find_child("StepTimer").start()
@@ -106,8 +106,8 @@ func all_steps_finished() -> void:
 	$Buttons/RightButton.disabled = false
 	$Buttons/DownButton.disabled = false
 	$Buttons/LeftButton.disabled = false
-	$GridContainer/HBoxContainer/DeleteButton.disabled = false
-	$GridContainer/ClearButton.disabled = false
+	$Notepad/DeleteButton.disabled = false
+	$Notepad/ClearButton.disabled = false
 	$StartButton.disabled = false
 	character_timer.stop()
 	for x in enemies.get_child_count():
