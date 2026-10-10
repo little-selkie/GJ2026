@@ -10,6 +10,9 @@ var music_index = AudioServer.get_bus_index("Music")
 var sfx_index = AudioServer.get_bus_index("SFX")
 
 func _ready() -> void:
+	$MP3Player/MusicOptions/Master/HScrollBarMaster.value = AudioServer.get_bus_volume_db(master_index)
+	$MP3Player/MusicOptions/Music/HScrollBarMusic.value = AudioServer.get_bus_volume_db(music_index)
+	$MP3Player/MusicOptions/SFX/HScrollBarSFX.value = AudioServer.get_bus_volume_db(sfx_index)
 	current_focus = current_focus_vars[0]
 	pass
 
