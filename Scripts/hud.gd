@@ -2,6 +2,7 @@ extends CanvasLayer
 
 @export var character_timer: Timer
 @export var enemies: Node2D
+var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	pass
@@ -35,18 +36,30 @@ func _on_clear_button_pressed() -> void:
 
 func _on_up_button_pressed() -> void:
 	add_move("Up")
+	$ButtonClick.volume_db = rng.randf_range(-6, 0)
+	$ButtonClick.pitch_scale = rng.randf_range(0.8, 1.2)
+	$ButtonClick.play()
 
 
 func _on_right_button_pressed() -> void:
 	add_move("Right")
+	$ButtonClick.volume_db = rng.randf_range(-6, 0)
+	$ButtonClick.pitch_scale = rng.randf_range(0.8, 1.2)
+	$ButtonClick.play()
 
 
 func _on_down_button_pressed() -> void:
 	add_move("Down")
+	$ButtonClick.volume_db = rng.randf_range(-6, 0)
+	$ButtonClick.pitch_scale = rng.randf_range(0.8, 1.2)
+	$ButtonClick.play()
 
 
 func _on_left_button_pressed() -> void:
 	add_move("Left")
+	$ButtonClick.volume_db = rng.randf_range(-6, 0)
+	$ButtonClick.pitch_scale = rng.randf_range(0.8, 1.2)
+	$ButtonClick.play()
 
 
 func _on_delete_button_pressed() -> void:

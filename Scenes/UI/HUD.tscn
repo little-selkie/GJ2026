@@ -3,6 +3,15 @@
 [ext_resource type="Script" uid="uid://d0gbjwaihk4dk" path="res://Scripts/hud.gd" id="1_omqfp"]
 [ext_resource type="Theme" uid="uid://ba5hr3ln210s2" path="res://Scenes/UI/main_theme.tres" id="2_qc5w2"]
 [ext_resource type="Texture2D" uid="uid://cj5w5rvmhaga1" path="res://Images/Props/playmachine.png" id="2_xaom8"]
+[ext_resource type="Texture2D" uid="uid://csucfbpih8n4g" path="res://Images/Buttons/button_down.png" id="4_1ree7"]
+[ext_resource type="Texture2D" uid="uid://dmtjyy3dejxkp" path="res://Images/Buttons/button_right.png" id="4_pydgx"]
+[ext_resource type="Texture2D" uid="uid://botmv8hylt80l" path="res://Images/Buttons/button_left.png" id="4_ykvyr"]
+[ext_resource type="Texture2D" uid="uid://dx147w4yuduf1" path="res://Images/Buttons/button_down_pressed.png" id="5_d2sja"]
+[ext_resource type="Texture2D" uid="uid://ca6yxc8xv41r3" path="res://Images/Buttons/button_right_pressed.png" id="5_eebq5"]
+[ext_resource type="Texture2D" uid="uid://dubl68x8iifv0" path="res://Images/Buttons/button_left_pressed.png" id="5_lelo4"]
+[ext_resource type="Texture2D" uid="uid://c71iq3sklyh3w" path="res://Images/Buttons/button_up.png" id="10_18ujm"]
+[ext_resource type="Texture2D" uid="uid://d4bynka8w0s3r" path="res://Images/Buttons/button_up_pressed.png" id="11_jt2rc"]
+[ext_resource type="AudioStream" uid="uid://bimojclxqyycc" path="res://Audio/SFX/PhysicalButtonPress.mp3" id="12_eebq5"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1184858684]
 script = ExtResource("1_omqfp")
@@ -83,23 +92,6 @@ offset_transform_enabled = true
 [node name="HBoxContainer" type="HBoxContainer" parent="GridContainer" unique_id=1573397922]
 layout_mode = 2
 
-[node name="UpButton" type="Button" parent="GridContainer/HBoxContainer" unique_id=1071846514]
-layout_mode = 2
-text = "Up"
-
-[node name="RightButton" type="Button" parent="GridContainer/HBoxContainer" unique_id=408882141]
-layout_mode = 2
-text = "Right
-"
-
-[node name="DownButton" type="Button" parent="GridContainer/HBoxContainer" unique_id=275915171]
-layout_mode = 2
-text = "Down"
-
-[node name="LeftButton" type="Button" parent="GridContainer/HBoxContainer" unique_id=605532058]
-layout_mode = 2
-text = "Left"
-
 [node name="DeleteButton" type="Button" parent="GridContainer/HBoxContainer" unique_id=1535295932]
 layout_mode = 2
 text = "Delete Last"
@@ -116,11 +108,70 @@ text = "Start"
 layout_mode = 2
 text = "Restart"
 
-[connection signal="pressed" from="GridContainer/HBoxContainer/UpButton" to="." method="_on_up_button_pressed"]
-[connection signal="pressed" from="GridContainer/HBoxContainer/RightButton" to="." method="_on_right_button_pressed"]
-[connection signal="pressed" from="GridContainer/HBoxContainer/DownButton" to="." method="_on_down_button_pressed"]
-[connection signal="pressed" from="GridContainer/HBoxContainer/LeftButton" to="." method="_on_left_button_pressed"]
+[node name="Buttons" type="Control" parent="." unique_id=1610728450]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 49.0
+offset_bottom = 47.0
+
+[node name="RightButton" type="TextureButton" parent="Buttons" unique_id=626928718]
+layout_mode = 0
+offset_left = 1756.0
+offset_top = 1142.0
+offset_right = 1916.0
+offset_bottom = 1250.0
+texture_normal = ExtResource("4_pydgx")
+texture_pressed = ExtResource("5_eebq5")
+texture_hover = ExtResource("4_pydgx")
+texture_disabled = ExtResource("5_eebq5")
+texture_focused = ExtResource("4_pydgx")
+
+[node name="DownButton" type="TextureButton" parent="Buttons" unique_id=87463901]
+layout_mode = 0
+offset_left = 1626.0
+offset_top = 1189.0
+offset_right = 1781.0
+offset_bottom = 1292.0
+texture_normal = ExtResource("4_1ree7")
+texture_pressed = ExtResource("5_d2sja")
+texture_hover = ExtResource("4_1ree7")
+texture_disabled = ExtResource("5_d2sja")
+texture_focused = ExtResource("4_1ree7")
+
+[node name="LeftButton" type="TextureButton" parent="Buttons" unique_id=859260181]
+layout_mode = 0
+offset_left = 1456.0
+offset_top = 1141.0
+offset_right = 1630.0
+offset_bottom = 1250.0
+texture_normal = ExtResource("4_ykvyr")
+texture_pressed = ExtResource("5_lelo4")
+texture_hover = ExtResource("4_ykvyr")
+texture_disabled = ExtResource("5_lelo4")
+texture_focused = ExtResource("4_ykvyr")
+
+[node name="UpButton" type="TextureButton" parent="Buttons" unique_id=1621890619]
+layout_mode = 0
+offset_left = 1592.0
+offset_top = 1098.0
+offset_right = 1739.0
+offset_bottom = 1177.0
+texture_normal = ExtResource("10_18ujm")
+texture_pressed = ExtResource("11_jt2rc")
+texture_hover = ExtResource("10_18ujm")
+texture_disabled = ExtResource("11_jt2rc")
+texture_focused = ExtResource("10_18ujm")
+
+[node name="ButtonClick" type="AudioStreamPlayer2D" parent="." unique_id=1097745272]
+stream = ExtResource("12_eebq5")
+
 [connection signal="pressed" from="GridContainer/HBoxContainer/DeleteButton" to="." method="_on_delete_button_pressed"]
 [connection signal="pressed" from="GridContainer/ClearButton" to="." method="_on_clear_button_pressed"]
 [connection signal="pressed" from="GridContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="GridContainer/StopButtom" to="." method="_on_stop_buttom_pressed"]
+[connection signal="pressed" from="Buttons/RightButton" to="." method="_on_right_button_pressed"]
+[connection signal="pressed" from="Buttons/DownButton" to="." method="_on_down_button_pressed"]
+[connection signal="pressed" from="Buttons/LeftButton" to="." method="_on_left_button_pressed"]
+[connection signal="pressed" from="Buttons/UpButton" to="." method="_on_up_button_pressed"]
