@@ -167,7 +167,7 @@ func _on_button_right_pressed() -> void:
 
 
 func _on_h_scroll_bar_value_changed(value: float) -> void:
-	if value == 0:
+	if value == -30:
 		AudioServer.set_bus_mute(master_index, true)
 	else:
 		AudioServer.set_bus_mute(master_index, false)
@@ -175,7 +175,7 @@ func _on_h_scroll_bar_value_changed(value: float) -> void:
 
 
 func _on_h_scroll_bar_music_value_changed(value: float) -> void:
-	if value == 0:
+	if value == -30:
 		AudioServer.set_bus_mute(music_index, true)
 	else:
 		AudioServer.set_bus_mute(music_index, false)
@@ -183,7 +183,7 @@ func _on_h_scroll_bar_music_value_changed(value: float) -> void:
 
 
 func _on_h_scroll_bar_sfx_value_changed(value: float) -> void:
-	if value == 0:
+	if value == -30:
 		AudioServer.set_bus_mute(sfx_index, true)
 	else:
 		AudioServer.set_bus_mute(sfx_index, false)
