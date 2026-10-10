@@ -38,6 +38,7 @@ shader_parameter/radial_vignette_outer_radius = 1.0
 
 [node name="CRT_Filter" type="CanvasLayer" parent="." unique_id=1978822454]
 script = ExtResource("1_vokme")
+max_glitch_interval = 180.0
 glitch_sound = ExtResource("2_71gfe")
 fix_sound = ExtResource("3_vtqal")
 

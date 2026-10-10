@@ -154,6 +154,7 @@ func _create_audio_players() -> void:
 		fix_audio_player.name = "FixSoundPlayer"
 		fix_audio_player.stream = fix_sound
 		fix_audio_player.bus = "SFX"
+		fix_audio_player.volume_db = -15
 		add_child(fix_audio_player)
 
 
