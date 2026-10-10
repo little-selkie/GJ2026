@@ -8,11 +8,11 @@
 
 [node name="MAIN" type="Node2D" unique_id=1001715188]
 
+[node name="ShaderScene" parent="." unique_id=295264481 instance=ExtResource("1_c5rrr")]
+
 [node name="HUD" parent="." unique_id=690529518 node_paths=PackedStringArray("character_timer", "enemies") instance=ExtResource("1_8as8m")]
 character_timer = NodePath("../Level0/MainCharacter/Timer")
 enemies = NodePath("../Level0/Enemies")
-
-[node name="ShaderScene" parent="." unique_id=295264481 instance=ExtResource("1_c5rrr")]
 
 [node name="Level0" parent="." unique_id=2120250458 instance=ExtResource("2_rqf0l")]
 
