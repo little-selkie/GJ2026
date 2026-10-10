@@ -17,8 +17,8 @@ func _ready() -> void:
 	pass
 
 func _process(_delta: float) -> void:
-	$AspectRatioContainer/VBoxContainer/Score/Number.text = str(GlobalVars.coins)
-	$AspectRatioContainer/VBoxContainer/Tries/Number.text = str(GlobalVars.total_attempts)
+	$Notepad/Score/Number.text = str(GlobalVars.coins)
+	$Notepad/Tries/Number.text = str(GlobalVars.total_attempts)
 
 func add_move(direction) -> void:
 	add_move_ui(direction)
@@ -31,7 +31,7 @@ func add_move_ui(direction) -> void:
 	new_label.text = str(direction)
 	new_child.add_child(new_label)
 	var new_image = TextureRect.new()
-	new_image.texture = load("res://Images/TestImages/icon.svg")
+	new_image.texture = load("res://Images/Arrows/" + direction + ".PNG")
 	new_image.expand_mode = 2
 	new_child.add_child(new_image)
 
