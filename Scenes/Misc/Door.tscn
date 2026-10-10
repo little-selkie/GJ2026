@@ -1,10 +1,63 @@
 [gd_scene format=3 uid="uid://jirjf1fn0rr3"]
 
 [ext_resource type="Texture2D" uid="uid://br0xckgineo57" path="res://Images/Props/Lock.png" id="1_3n83d"]
+[ext_resource type="Texture2D" uid="uid://27astauv5cla" path="res://Images/Props/Box64х64.png" id="1_u5i6v"]
 [ext_resource type="PackedScene" uid="uid://pvywmvtsha7y" path="res://Scenes/Misc/VictoryZone.tscn" id="2_dl48k"]
 [ext_resource type="Texture2D" uid="uid://cc20pelp1df5" path="res://Images/Textures/LightCircle.png" id="3_h15ft"]
 
+[sub_resource type="Animation" id="Animation_u5i6v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorOpen2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.79999995, 0.79999995)]
+}
+
+[sub_resource type="Animation" id="Animation_gqvky"]
+resource_name = "pulsate_door"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DoorOpen2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.79999995, 0.79999995), Vector2(0.03, 0.03), Vector2(0.79999995, 0.79999995)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7h6k"]
+_data = {
+&"RESET": SubResource("Animation_u5i6v"),
+&"pulsate_door": SubResource("Animation_gqvky")
+}
+
 [node name="Door" type="Node2D" unique_id=838096453]
+
+[node name="DoorOpen" type="Sprite2D" parent="." unique_id=1252977874]
+visible = false
+modulate = Color(1.6852883, 0, 0.72789526, 1)
+texture = ExtResource("1_u5i6v")
+
+[node name="DoorOpen2" type="Sprite2D" parent="DoorOpen" unique_id=1094707417]
+self_modulate = Color(1, 1, 1, 0.59607846)
+scale = Vector2(0.79999995, 0.79999995)
+texture = ExtResource("1_u5i6v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DoorOpen" unique_id=126402741]
+libraries/ = SubResource("AnimationLibrary_v7h6k")
+autoplay = &"pulsate_door"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1740833084]
 texture = ExtResource("1_3n83d")

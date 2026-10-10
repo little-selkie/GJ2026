@@ -14,7 +14,9 @@ config/name="GJ2026"
 config/version="0.0.1"
 run/main_scene="uid://cvkiee62sx8wk"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/image="uid://ba6rohuafxyfc"
 config/icon="res://Images/TestImages/icon.svg"
+boot_splash/minimum_display_time=4000
 
 [audio]
 
@@ -31,7 +33,6 @@ window/size/viewport_width=2304
 window/size/viewport_height=1296
 window/size/mode=2
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [editor]
 
