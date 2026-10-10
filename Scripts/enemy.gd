@@ -10,13 +10,16 @@ var forward_movement_pattern: Array[int]
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
-	var my_random_number = rng.randi_range(1, 3)
+	var my_random_number = rng.randi_range(1, 4)
 	if my_random_number == 1:
 		$Sprite2D.texture = load("res://Images/Props/EnemyBlue.png")
 	elif my_random_number == 2:
 		$Sprite2D.texture = load("res://Images/Props/EnemyOrange.png")
 	elif my_random_number == 3:
 		$Sprite2D.texture = load("res://Images/Props/EnemyRed.png")
+	elif my_random_number == 4:
+		$Sprite2D.texture = load("res://Images/Props/EnemyBlue.png")
+		$Sprite2D.self_modulate = Color(1.0, 0.204, 1.0)
 	forward_movement_pattern = movement_pattern
 	for x in movement_pattern.size():
 		if movement_pattern[x] == 1:
