@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckdllshjkj56k" path="res://Scripts/main_menu_music.gd" id="1_41sdd"]
 [ext_resource type="AudioStream" uid="uid://dm5qcr3kx8pfl" path="res://Audio/Music/moodmode-8-bit-air-fight-158813.mp3" id="1_48c0w"]
-[ext_resource type="AudioStream" uid="uid://cf1h804upxp23" path="res://Audio/Music/level start.mp3" id="2_3liat"]
+[ext_resource type="AudioStream" uid="uid://dq01t5difp4um" path="res://Audio/SFX/LevelStart.mp3" id="2_3liat"]
 [ext_resource type="AudioStream" uid="uid://djuqeo3qkrhiq" path="res://Audio/Music/moodmode-a-video-game-248444.mp3" id="2_41sdd"]
 [ext_resource type="AudioStream" uid="uid://wj0kpfmkroef" path="res://Audio/Music/moodmode-retro-gaming-248421.mp3" id="3_3liat"]
 [ext_resource type="AudioStream" uid="uid://dt7nwm8gf5g55" path="res://Audio/Music/moodmode-that-game-arcade-236111.mp3" id="4_yrb1k"]
